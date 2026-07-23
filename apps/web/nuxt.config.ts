@@ -43,6 +43,8 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    fakerApiBaseUrl: 'https://fakerapi.it/api/v1',
+    fakerApiTimeout: 3000,
     public: {
       siteUrl: 'https://web.com',
     },

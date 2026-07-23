@@ -22,3 +22,18 @@ export const booksListResponseSchema: z.ZodType<BooksListResponse> = z.object({
   status: z.literal('OK'),
   total: z.number().int().nonnegative(),
 })
+
+export const bookDetailResponseSchema = z.object({
+  code: z.literal(200),
+  data: bookSchema,
+  status: z.literal('OK'),
+})
+
+export const booksListQuerySchema = z.object({
+  _page: z.coerce.number().int().positive().default(1),
+  _quantity: z.coerce.number().int().positive().max(100).default(12),
+  _seed: z.coerce.number().int().optional(),
+})
+
+export type BooksListQuery = z.infer<typeof booksListQuerySchema>
+export type BookDetailResponse = z.infer<typeof bookDetailResponseSchema>
