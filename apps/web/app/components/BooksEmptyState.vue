@@ -13,7 +13,13 @@ defineEmits<{
       <h2 class="font-display txt-h3 text-neutral-text">{{ $t('books.emptyTitle') }}</h2>
       <p class="txt-base text-neutral-text-muted">{{ $t('books.emptyDescription') }}</p>
     </div>
-    <UIButton intent="neutral" size="sm" variant="subtle" @click="$emit('reset')">
+    <UIButton
+      class="focus-visible:ring-2 focus-visible:ring-primary-border focus-visible:ring-offset-2 focus-visible:ring-offset-primary-bg"
+      intent="neutral"
+      size="sm"
+      variant="subtle"
+      @click="$emit('reset')"
+    >
       {{ $t('books.emptyReset') }}
     </UIButton>
   </div>

@@ -3,11 +3,6 @@ import { bookCoverViewTransitionName } from '../utils/book-view-transition'
 
 import type { Book } from '../types/book'
 
-
-definePageMeta({
-  viewTransition: true,
-})
-
 const props = defineProps<{
   book: Book
   favorite?: boolean
@@ -34,12 +29,12 @@ const formattedPublished = computed(() => {
       styled
       :to="`/books/${book.id}`"
       :ui="{
-        root: 'group flex h-full flex-col no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-border focus-visible:ring-offset-2 focus-visible:ring-offset-primary-bg',
+        root: 'group flex h-full flex-col rounded-xs no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-border focus-visible:ring-offset-2 focus-visible:ring-offset-primary-bg',
       }"
       variant="ghost"
     >
       <UICard
-        class="h-full flex-1 transition-shadow duration-200 group-hover:shadow-md"
+        class="h-full flex-1 transition-[box-shadow,transform] duration-200 group-hover:shadow-md group-focus-visible:shadow-md motion-reduce:transition-none"
         intent="neutral"
         size="md"
         variant="subtle"

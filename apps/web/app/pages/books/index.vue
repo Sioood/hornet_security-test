@@ -9,6 +9,9 @@ definePageMeta({
 const LIST_PAGE_SIZE = 12
 const CATALOG_PAGE_SIZE = 100
 
+const booksGridClass =
+  'grid grid-cols-1 items-stretch gap-4 min-[30rem]:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4 2xl:gap-8'
+
 const { hasListError, listError, listPending, mergedBooks, fetchBooks, refreshList, isFavorite } =
   extractStore(useBooksStore())
 
@@ -61,12 +64,12 @@ watch(
 </script>
 
 <template>
-  <section class="space-y-8">
-    <header class="space-y-3">
+  <section class="space-y-6 md:space-y-8">
+    <header class="space-y-2 md:space-y-3">
       <p class="txt-label tracking-[0.2em] text-neutral-text-muted uppercase">
         {{ $t('navLibrary') }}
       </p>
-      <h1 class="font-display txt-h1 text-neutral-text">{{ $t('libraryTitle') }}</h1>
+      <h1 class="font-display txt-h2 md:txt-h1 text-neutral-text">{{ $t('libraryTitle') }}</h1>
       <p class="txt-base max-w-2xl text-neutral-text-muted">{{ $t('librarySubtitle') }}</p>
     </header>
 
@@ -94,11 +97,7 @@ watch(
     />
 
     <template v-else-if="listPending">
-      <div
-        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        aria-busy="true"
-        :aria-label="$t('books.loading')"
-      >
+      <div :class="booksGridClass" aria-busy="true" :aria-label="$t('books.loading')">
         <div
           v-for="item in skeletonItems"
           :key="item"
@@ -123,18 +122,17 @@ watch(
       <BooksEmptyState v-if="filteredBooks.length === 0" @reset="filterBarRef?.reset()" />
 
       <template v-else>
-        <div
-          class="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        >
+        <TransitionGroup :class="booksGridClass" name="book-list" tag="div">
           <BookCard
             v-for="book in pagedBooks"
             :key="book.id"
             :book="book"
+            class="h-full"
             :favorite="isFavorite(book.id)"
           />
-        </div>
+        </TransitionGroup>
 
-        <div v-if="filteredBooks.length > LIST_PAGE_SIZE" class="flex justify-center pt-4">
+        <div v-if="filteredBooks.length > LIST_PAGE_SIZE" class="flex justify-center pt-2 md:pt-4">
           <UIPagination
             v-model:page="listPage"
             :count="filteredBooks.length"
