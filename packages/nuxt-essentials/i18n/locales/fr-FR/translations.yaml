@@ -1,0 +1,9 @@
+hell: 'Monde (translations)'
+
+errorPage:
+  title:
+    notFound: 'Page introuvable'
+    forbidden: 'Accès refusé'
+    default: 'Une erreur est survenue'
+  description: "Une erreur inattendue s'est produite. Veuillez réessayer."
+  backHome: "Retour à l'accueil"

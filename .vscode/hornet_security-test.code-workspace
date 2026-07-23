@@ -1,0 +1,82 @@
+{
+  "folders": [
+    {
+      "name": "/",
+      "path": "../",
+    },
+    {
+      "name": "config",
+      "path": "../packages/config",
+    },
+    {
+      "name": "nuxt-essentials",
+      "path": "../packages/nuxt-essentials",
+    },
+    {
+      "name": "ui",
+      "path": "../packages/ui",
+    },
+    {
+      "name": "web",
+      "path": "../apps/web",
+    },
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "node_modules": true,
+      "apps/": true,
+      "packages/": true,
+    },
+    "conventionalCommits.scopes": ["global", "config", "docs", "nuxt-essentials", "ui", "web"],
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "[javascript]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[json]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[markdown]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[yaml]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "oxc.enable": true,
+    "oxc.enable.oxfmt": true,
+    "cSpell.words": ["hornet_security-test", "oxlint", "nuxt", "compodium"],
+    "[vue]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+  },
+  "extensions": {
+    "recommendations": [
+      "oxc.oxc-vscode",
+      "dbaeumer.vscode-eslint",
+      "vivaxy.vscode-conventional-commits",
+      "Gruntfuggly.todo-tree",
+      "antfu.iconify",
+      "yoavbls.pretty-ts-errors",
+      "streetsidesoftware.code-spell-checker",
+    ],
+  },
+}

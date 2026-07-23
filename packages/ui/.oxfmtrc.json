@@ -1,0 +1,18 @@
+{
+  "$schema": "../../node_modules/oxfmt/configuration_schema.json",
+  "sortTailwindcss": {
+    "stylesheet": "app/assets/css/main.css",
+    "functions": ["cn", "clsx", "cva", "twMerge", "twJoin", "ctl", "cc", "clb", "cnb"]
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/.nuxt/**",
+    "**/.output/**",
+    "**/dist/**",
+    "**/.turbo/**",
+    "**/.cache/**",
+    "**/pnpm-lock.yaml"
+  ],
+  "semi": false,
+  "singleQuote": true
+}

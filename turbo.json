@@ -1,0 +1,128 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": [".npmrc", "pnpm-workspace.yaml", ".nvmrc"],
+  "futureFlags": {
+    "pruneIncludesGlobalFiles": true
+  },
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".output/**", ".nuxt/**"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "format": {
+      "cache": false,
+      "inputs": [
+        "**/*.{ts,vue,js,mjs,cjs,json,md,yaml,yml}",
+        ".oxfmtrc.json",
+        "packages/config/oxlint/base.oxlintrc.json",
+        "packages/config/oxlint/vue.oxlintrc.json",
+        "packages/config/oxlint/tailwind.oxlintrc.json"
+      ]
+    },
+    "format:check": {
+      "cache": false,
+      "inputs": [
+        "**/*.{ts,vue,js,mjs,cjs,json,md,yaml,yml}",
+        ".oxfmtrc.json",
+        "packages/config/oxlint/base.oxlintrc.json",
+        "packages/config/oxlint/vue.oxlintrc.json",
+        "packages/config/oxlint/tailwind.oxlintrc.json"
+      ]
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "inputs": [
+        "**/*.{ts,vue,js,json,yaml,yml,md}",
+        "eslint.config.ts",
+        ".oxlintrc.json",
+        "**/.oxlintrc.json",
+        "packages/config/oxlint/base.oxlintrc.json",
+        "packages/config/oxlint/tailwind.oxlintrc.json"
+      ]
+    },
+    "lint:fix": {
+      "dependsOn": ["^lint:fix"],
+      "inputs": [
+        "**/*.{ts,vue,js,json,yaml,yml,md}",
+        "eslint.config.ts",
+        ".oxlintrc.json",
+        "**/.oxlintrc.json",
+        "packages/config/oxlint/base.oxlintrc.json",
+        "packages/config/oxlint/vue.oxlintrc.json",
+        "packages/config/oxlint/tailwind.oxlintrc.json"
+      ]
+    },
+    "lint:eslint": {
+      "dependsOn": ["^lint:eslint"],
+      "inputs": ["**/*.{ts,vue,js,json,yaml,yml,md}", "eslint.config.ts"]
+    },
+    "lint:oxlint": {
+      "dependsOn": ["^lint:oxlint"],
+      "inputs": [
+        "**/*.{ts,vue,js}",
+        ".oxlintrc.json",
+        "**/.oxlintrc.json",
+        "packages/config/oxlint/base.oxlintrc.json",
+        "packages/config/oxlint/vue.oxlintrc.json",
+        "packages/config/oxlint/tailwind.oxlintrc.json"
+      ]
+    },
+    "test": {
+      "dependsOn": [],
+      "inputs": [
+        "app/**/*.{ts,vue}",
+        "i18n/**/*.{ts,json,yaml,yml}",
+        "**/__fixtures__/**",
+        "test/**/*.ts",
+        "vitest-nuxt-environment.ts",
+        "vitest.config.ts"
+      ],
+      "outputs": ["coverage/**"]
+    },
+    "test:component": {
+      "dependsOn": [],
+      "inputs": [
+        "app/**/*.{ts,vue}",
+        "test/**/*.ts",
+        "vitest.config.ts",
+        "vitest-nuxt-environment.ts"
+      ],
+      "outputs": ["coverage/**"]
+    },
+    "test:coverage": {
+      "dependsOn": [],
+      "inputs": [
+        "app/**/*.{ts,vue}",
+        "i18n/**/*.{ts,json,yaml,yml}",
+        "**/__fixtures__/**",
+        "test/**/*.ts",
+        "vitest-nuxt-environment.ts",
+        "vitest.config.ts"
+      ],
+      "outputs": ["coverage/**"]
+    },
+    "mutation": {
+      "dependsOn": [],
+      "cache": false,
+      "inputs": [
+        "app/utils/**/*.ts",
+        "app/composables/**/*.ts",
+        "i18n/utils/**/*.ts",
+        "test/**/*.test.ts",
+        "stryker.config.mjs"
+      ],
+      "outputs": ["reports/stryker-mutation.html", "reports/stryker-incremental.json"]
+    },
+    "mutation:open": {
+      "dependsOn": [],
+      "cache": false
+    }
+  }
+}

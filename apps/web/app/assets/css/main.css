@@ -1,0 +1,13 @@
+@import '../../../node_modules/@hornet_security-test/ui/app/assets/css/main.css';
+
+@source '../../../node_modules/@hornet_security-test/ui/app/components';
+@source '../../../node_modules/@hornet_security-test/ui/app/utils/Components';
+@source '../../../node_modules/@hornet_security-test/ui/app/pages/*';
+@source '../../../node_modules/@hornet_security-test/ui/app/app.vue';
+@source '../../../node_modules/@hornet_security-test/ui/app/error.vue';
+
+@source '../../app/components';
+@source '../../app/utils/Components';
+@source '../../app/pages/*';
+@source '../../app/app.vue';
+@source '../../app/error.vue';

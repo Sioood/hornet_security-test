@@ -1,0 +1,32 @@
+hell: 'Monde (UI)'
+downloadQRCode: 'Télécharger le QR code'
+select:
+  select: 'Sélectionner'
+  loading: 'Chargement'
+  noOptions: 'Aucune option'
+  selectAll: 'Tout sélectionner'
+combobox:
+  placeholder: 'Rechercher…'
+  loading: 'Chargement'
+  noOptions: 'Aucun résultat'
+tagsInput:
+  placeholder: 'Ajouter…'
+  loading: 'Chargement'
+  noOptions: 'Aucun résultat'
+open: 'Ouvrir'
+filter:
+  open: 'Filtres'
+  reset: 'Réinitialiser les filtres'
+fileUpload:
+  dropzoneText: 'Glissez & déposez des fichiers ici, ou cliquez pour parcourir'
+  clearText: 'Tout effacer'
+  triggerText: 'Choisir des fichier(s)'
+  errors:
+    too_many_files: 'Trop de fichiers sélectionnés'
+    file_invalid_type: 'Type de fichier invalide'
+    file_too_large: 'Fichier trop volumineux'
+    file_too_small: 'Fichier trop petit'
+    file_invalid: 'Fichier invalide'
+    file_exists: 'Le fichier existe déjà'
+tour:
+  progressText: '{currentStep} sur {totalSteps}'

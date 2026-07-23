@@ -1,0 +1,35 @@
+{
+  "extends": [
+    "./node_modules/@hornet_security-test/oxlint/base.oxlintrc.json",
+    "./node_modules/@hornet_security-test/oxlint/vue.oxlintrc.json",
+    "./node_modules/@hornet_security-test/oxlint/tailwind.oxlintrc.json"
+  ],
+  "settings": {
+    "tailwindcss": {
+      "entryPoint": "app/assets/css/main.css"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*.ts", "**/*.component.test.ts"],
+      "rules": {
+        "tailwindcss/no-unknown-classes": "off",
+        "tailwindcss/no-duplicate-classes": "off",
+        "tailwindcss/no-conflicting-classes": "off",
+        "tailwindcss/no-deprecated-classes": "off",
+        "tailwindcss/no-unnecessary-whitespace": "off",
+        "tailwindcss/no-dark-without-light": "off",
+        "tailwindcss/no-contradicting-variants": "off",
+        "tailwindcss/enforce-canonical": "off",
+        "tailwindcss/enforce-sort-order": "off",
+        "tailwindcss/enforce-shorthand": "off",
+        "tailwindcss/enforce-consistent-important-position": "off",
+        "tailwindcss/enforce-negative-arbitrary-values": "off",
+        "tailwindcss/enforce-consistent-variable-syntax": "off",
+        "tailwindcss/consistent-variant-order": "off",
+        "tailwindcss/no-hardcoded-colors": "off",
+        "tailwindcss/no-unnecessary-arbitrary-value": "off"
+      }
+    }
+  ]
+}

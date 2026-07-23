@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "./node_modules/@hornet_security-test/oxlint/base.oxlintrc.json",
+    "./node_modules/@hornet_security-test/oxlint/vue.oxlintrc.json",
+    "./node_modules/@hornet_security-test/oxlint/tailwind.oxlintrc.json"
+  ],
+  "settings": {
+    "tailwindcss": {
+      "entryPoint": "../../packages/ui/app/assets/css/main.css"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+git fetch
+pnpm audit --audit-level=high

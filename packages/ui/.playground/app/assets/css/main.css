@@ -1,0 +1,13 @@
+@import '../../../../app/assets/css/main.css';
+
+@source '../../../../app/components';
+@source '../../../../app/utils/Components';
+@source '../../../../app/pages/*';
+@source '../../../../app/app.vue';
+@source '../../../../app/error.vue';
+
+@source '../../app/components';
+@source '../../app/utils/Components';
+@source '../../app/pages/*';
+@source '../../app/app.vue';
+@source '../../app/error.vue';

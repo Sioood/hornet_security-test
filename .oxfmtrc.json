@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/.nuxt/**",
+    "**/.output/**",
+    "**/dist/**",
+    "**/.turbo/**",
+    "**/.cache/**",
+    "**/pnpm-lock.yaml"
+  ],
+  "semi": false,
+  "singleQuote": true
+}

@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "./node_modules/@hornet_security-test/oxlint/base.oxlintrc.json",
+    "./node_modules/@hornet_security-test/oxlint/vue.oxlintrc.json"
+  ]
+}

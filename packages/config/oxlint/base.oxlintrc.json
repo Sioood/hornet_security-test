@@ -1,0 +1,27 @@
+{
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "eqeqeq": "error",
+    "typescript/no-explicit-any": "error",
+    "unicorn/no-array-for-each": "error",
+    "max-params": ["error", { "max": 3 }],
+    "arrow-body-style": ["error", "as-needed"],
+    "curly": ["error", "multi-line", "consistent"],
+    "object-shorthand": "error",
+    "yoda": ["error", "never", { "exceptRange": true }],
+    "no-console": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "prefer-destructuring": "error",
+    "sort-keys": ["error", "asc", { "allowLineSeparatedGroups": true, "natural": true }]
+  },
+  "ignorePatterns": ["**/node_modules/**", "**/dist/**"]
+}

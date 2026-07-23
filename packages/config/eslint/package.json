@@ -1,0 +1,42 @@
+{
+  "name": "@hornet_security-test/eslint",
+  "version": "1.2.0",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "files": [
+    "index.ts",
+    "eslint.config.ts"
+  ],
+  "type": "module",
+  "main": "index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "scripts": {
+    "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
+    "lint:oxlint": "pnpm exec oxlint -c .oxlintrc.json .",
+    "lint:eslint": "eslint .",
+    "check-types": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-flat-config-utils": "^3.2.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-plugin-jsonc": "^3.1.2",
+    "eslint-plugin-markdown": "^5.1.0",
+    "eslint-plugin-oxlint": "^1.66.0",
+    "eslint-plugin-vue": "catalog:",
+    "eslint-plugin-yml": "^3.3.2",
+    "jiti": "^2.7.0",
+    "oxlint": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vue-eslint-parser": "catalog:"
+  }
+}

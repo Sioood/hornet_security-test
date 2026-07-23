@@ -1,0 +1,7 @@
+offlineReady:
+  title: 'Hors ligne disponible'
+  description: "L'application est prête à fonctionner hors ligne."
+updateAvailable:
+  title: 'Mise à jour disponible'
+  description: 'Nouveau contenu disponible. Rechargez pour mettre à jour.'
+  reloadLabel: 'Recharger'

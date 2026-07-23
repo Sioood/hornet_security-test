@@ -1,0 +1,49 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "tags": ["-lintignore"],
+  "workspaces": {
+    ".": {},
+    "apps/web": {
+      "entry": ["i18n/locales/**/*.ts"],
+      "project": ["app/**/*.{ts,vue}", "i18n/**/*.ts"],
+      "ignoreDependencies": ["@hornet_security-test/ui", "vue", "vue-router"]
+    },
+    "packages/config/oxlint": {
+      "entry": [
+        ".oxlintrc.json",
+        "base.oxlintrc.json",
+        "vue.oxlintrc.json",
+        "tailwind.oxlintrc.json"
+      ],
+      "ignoreDependencies": ["oxlint-tailwindcss"]
+    },
+    "packages/ui": {
+      "entry": [
+        "i18n/locales/**/*.ts",
+        "app/components/**/*.vue",
+        "yaml.d.ts",
+        "app/compodium/**/*.vue",
+        "test/**/*.test.ts",
+        "test/extend-compodium-meta-stub.ts",
+        "test/visual/stubs/nuxt-app.ts"
+      ],
+      "project": ["app/**/*.{ts,vue}", "test/**/*.ts", "i18n/**/*.ts", "*.d.ts"],
+      "paths": {
+        "~ui/*": ["./*"],
+        "~nuxt-essentials/*": ["../nuxt-essentials/*"]
+      },
+      "ignoreDependencies": ["vue-router", "vue-i18n"],
+      "ignoreBinaries": ["open"],
+      "vitest": {
+        "config": ["vitest.knip.config.ts"]
+      }
+    },
+    "packages/nuxt-essentials": {
+      "entry": ["i18n/locales/**/*.ts", "i18n/utils/namespace.ts", "yaml.d.ts"],
+      "project": ["app/**/*.{ts,vue}", "i18n/**/*.ts", "*.d.ts"],
+      "ignoreDependencies": ["@takumi-rs/core", "vue-router"],
+      "ignoreBinaries": ["open"]
+    }
+  },
+  "ignoreDependencies": ["@hornet_security-test/oxlint"]
+}

@@ -1,0 +1,106 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'packages/config/*'
+
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  maplibre-gl: true
+  sharp: true
+  unrs-resolver: true
+  vue-demi: true
+
+catalog:
+  '@ark-ui/vue': ^5.36.2
+  '@internationalized/date': 3.12.0
+  '@nuxt/eslint': ^1.15.2
+  '@nuxt/kit': ^4.4.6
+  '@nuxtjs/i18n': ^10.4.0
+  '@nuxtjs/seo': ^5.1.3
+  '@pinia/nuxt': ^0.11.3
+  '@unovis/ts': ^1.6.5
+  '@unovis/vue': ^1.6.5
+  pinia: ^3.0.4
+  '@playwright/test': ^1.60.0
+  '@tailwindcss/vite': ^4.3.0
+  tailwindcss: ^4.3.0
+  '@tanstack/form-core': ^1.32.0
+  '@tanstack/table-core': ^8.21.3
+  '@tanstack/vue-form': ^1.32.0
+  '@tanstack/vue-table': ^8.21.3
+  '@tanstack/vue-virtual': ^3.13.25
+  '@types/minimist': ^1.2.5
+  '@types/node': ^25.9.1
+  '@typescript-eslint/parser': ^8.59.4
+  '@vite-pwa/nuxt': ^1.1.1
+  '@vitest/browser': ^4.1.9
+  '@vitest/browser-playwright': ^4.1.9
+  '@vitest/coverage-v8': ^4.1.9
+  '@vueuse/core': ^14.3.0
+  '@vueuse/nuxt': ^14.3.0
+  class-variance-authority: ^0.7.1
+  commander: ^13.1.0
+  fuse.js: ^7.4.2
+  eslint: ^10.4.0
+  eslint-config-prettier: ^10.1.8
+  eslint-plugin-vue: ^10.9.1
+  nuxt: ^4.4.8
+  nuxt-security: ^2.6.0
+  oxfmt: ^0.51.0
+  oxlint: ^1.66.0
+  oxlint-tailwindcss: ^0.8.0
+  playwright: ^1.60.0
+  tailwind-merge: ^3.6.0
+  typescript: ^6.0.3
+  typescript-eslint: ^8.59.4
+  vitest: ^4.1.9
+  'vue': ^3.5.34
+  vue-eslint-parser: ^10.4.0
+  'vue-router': ^5.0.7
+  'yaml': ^2.9.0
+  zod: ^4.4.3
+
+minimumReleaseAge: 1440 # 24 hours
+minimumReleaseAgeExclude:
+  - esbuild@0.28.1
+  - vite@7.3.5
+  - '@vitest/browser@4.1.8'
+  - '@vitest/browser@4.1.9'
+  - vitest@4.1.8
+  - vitest@4.1.9
+  - nuxt@4.4.7
+
+packageExtensions:
+  '@unhead/bundler@3.1.0':
+    dependencies:
+      unhead: ^3.1.0
+    peerDependenciesMeta:
+      unhead:
+        optional: true
+
+overrides:
+  '@internationalized/date': 3.12.0
+  '@vitest/browser@>=4.0.0 <=4.1.7': '>=4.1.9'
+  vitest@>=4.0.0 <=4.1.7: '>=4.1.9'
+  esbuild: '>=0.28.1'
+  '@nuxt/nitro-server@>=4.2.0 <=4.4.5': '>=4.4.6'
+  ajv@>=7.0.0-alpha.0 <8.18.0: '>=8.20.0'
+  brace-expansion@>=2.0.0 <2.0.3: '>=5.0.6'
+  devalue@>=5.6.3 <=5.8.0: '>=5.8.1'
+  fast-uri@<=3.1.0: '>=3.1.1'
+  fast-uri@<=3.1.1: '>=3.1.2'
+  flatted@<3.4.0: '>=3.4.0'
+  flatted@<=3.4.1: '>=3.4.2'
+  js-cookie@<=3.0.5: '>=3.0.7'
+  js-yaml@<3.14.2: '>=3.14.2'
+  js-yaml@>=4.0.0 <4.1.1: '>=4.1.1'
+  minimatch@>=9.0.0 <9.0.6: '>=10.2.5'
+  minimatch@>=9.0.0 <9.0.7: '>=10.2.5'
+  nuxt@>=4.0.0-alpha.1 <=4.4.5: '>=4.4.6'
+  picomatch@<2.3.2: '>=2.3.2'
+  picomatch@>=4.0.0 <4.0.4: '>=4.0.4'
+  qs@>=6.11.1 <=6.15.1: '>=6.15.2'
+  turbo@<=2.9.13: '>=2.9.14'
+  turbo@>=1.1.0 <2.9.14: '>=2.9.14'
+  ws@>=8.0.0 <8.20.1: '>=8.21.0'

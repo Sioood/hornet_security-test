@@ -1,0 +1,38 @@
+{
+  "name": "@hornet_security-test/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
+    "lint:fix": "pnpm run lint:oxlint --fix && pnpm run lint:eslint --fix",
+    "lint:oxlint": "pnpm exec oxlint -c .oxlintrc.json .",
+    "lint:eslint": "pnpm exec eslint .",
+    "format": "pnpm exec oxfmt --write .",
+    "format:check": "pnpm exec oxfmt --check .",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "i18n:coverage": "pnpm exec hornet_security-test-i18n-coverage -f ./i18n/locales",
+    "i18n:coverage:namespace": "pnpm exec hornet_security-test-i18n-coverage -f ./i18n/locales --ns"
+  },
+  "dependencies": {
+    "@hornet_security-test/nuxt-essentials": "workspace:^",
+    "@hornet_security-test/ui": "workspace:^",
+    "nuxt": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
+  },
+  "devDependencies": {
+    "@nuxt/kit": "catalog:",
+    "@playwright/test": "catalog:",
+    "@hornet_security-test/eslint": "workspace:^",
+    "@hornet_security-test/oxlint": "workspace:^",
+    "eslint": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:"
+  }
+}

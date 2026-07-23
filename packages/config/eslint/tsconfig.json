@@ -1,0 +1,13 @@
+{
+  "extends": "@hornet_security-test/typescript/base.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": true,
+    "moduleResolution": "nodenext",
+    "module": "nodenext"
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.d.mts", "eslint.config.ts", "index.ts"]
+}

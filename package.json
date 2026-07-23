@@ -1,0 +1,119 @@
+{
+  "name": "hornet_security-test",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "lint:oxlint": "turbo run lint:oxlint",
+    "lint:eslint": "turbo run lint:eslint",
+    "deps:check:minor": "pnpx taze minor -r",
+    "deps:check:major": "pnpx taze major -r",
+    "format": "pnpm exec oxfmt --write .",
+    "format:check": "pnpm exec oxfmt --check .",
+    "check-types": "turbo run check-types",
+    "prepare": "husky || true",
+    "pre-commit": "lint-staged",
+    "changeset": "pnpm exec changeset",
+    "changeset:conventional-commits": "node ./.changeset/changeset-conventional-commits.ts",
+    "changeset:release": "pnpm exec changeset tag",
+    "init": "node ./scripts/init/index.ts",
+    "sync:merge": "node ./scripts/sync-from-minimal.ts",
+    "sync:pick": "node ./scripts/pick-commits.ts",
+    "build": "turbo run build",
+    "knip": "pnpm --filter @hornet_security-test/ui exec nuxt prepare && knip",
+    "knip:fix": "knip --fix",
+    "mutation": "turbo run mutation",
+    "mutation:open": "turbo run mutation:open",
+    "todoctor": "pnpx todoctor",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@changesets/read": "^0.6.7",
+    "@changesets/types": "^6.1.0",
+    "@changesets/write": "^0.4.0",
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
+    "@manypkg/get-packages": "^3.1.0",
+    "@hornet_security-test/eslint": "workspace:^",
+    "@hornet_security-test/oxlint": "workspace:^",
+    "@hornet_security-test/typescript": "workspace:^",
+    "@types/minimist": "catalog:",
+    "@types/node": "catalog:",
+    "commander": "catalog:",
+    "consola": "^3.4.2",
+    "eslint": "catalog:",
+    "husky": "^9.1.7",
+    "knip": "^6.14.2",
+    "lint-staged": "^17.0.5",
+    "minimist": "^1.2.8",
+    "only-allow": "^1.2.2",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "turbo": "^2.9.14",
+    "typescript": "catalog:"
+  },
+  "lint-staged": {
+    "**/*.{js,mjs,cjs,ts,mts,cts,vue}": [
+      "pnpm exec oxfmt --write",
+      "node ./scripts/lint-staged-oxlint.mjs --no-error-on-unmatched-pattern",
+      "eslint --fix"
+    ],
+    "**/*.{json,md,yaml,yml}": [
+      "pnpm exec oxfmt --write",
+      "eslint --fix"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        2,
+        "always",
+        100
+      ],
+      "scope-enum": [
+        2,
+        "always",
+        [
+          "global",
+          "config",
+          "docs",
+          "nuxt-essentials",
+          "ui",
+          "web"
+        ]
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "build",
+          "chore",
+          "ci",
+          "docs",
+          "feat",
+          "fix",
+          "perf",
+          "refactor",
+          "revert",
+          "style",
+          "test"
+        ]
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=25.8.0"
+  },
+  "packageManager": "pnpm@11.2.2"
+}
