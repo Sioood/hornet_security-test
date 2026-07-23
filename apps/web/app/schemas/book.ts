@@ -1,13 +1,23 @@
 import { z } from 'zod'
 
-import type { Book, BooksListResponse } from '~/types/book'
+import type { Book, BookGenre, BooksListResponse } from '~/types/book'
 
 const publishedDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
+
+export const bookGenreSchema = z.enum([
+  'Fantasy',
+  'Science Fiction',
+  'Mystery',
+  'Romance',
+  'Horror',
+  'Non-Fiction',
+  'Other',
+] satisfies [BookGenre, ...BookGenre[]])
 
 export const bookSchema: z.ZodType<Book> = z.object({
   author: z.string().min(1),
   description: z.string(),
-  genre: z.string().min(1),
+  genre: bookGenreSchema,
   id: z.number().int().positive(),
   image: z.string().min(1),
   isbn: z.string().min(10).max(13),
