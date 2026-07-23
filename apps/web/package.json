@@ -16,6 +16,8 @@
     "format:check": "pnpm exec oxfmt --check .",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "i18n:coverage": "pnpm exec hornet_security-test-i18n-coverage -f ./i18n/locales",
     "i18n:coverage:namespace": "pnpm exec hornet_security-test-i18n-coverage -f ./i18n/locales --ns"
   },
@@ -34,6 +36,7 @@
     "@playwright/test": "catalog:",
     "eslint": "catalog:",
     "oxfmt": "catalog:",
-    "oxlint": "catalog:"
+    "oxlint": "catalog:",
+    "vitest": "catalog:"
   }
 }
