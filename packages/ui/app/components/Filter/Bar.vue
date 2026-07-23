@@ -87,6 +87,11 @@ watch(
 
 const breakpoints = useBreakpoints({ lg: 1024 })
 const isLargeScreen = breakpoints.greaterOrEqual('lg')
+const isLayoutReady = ref(false)
+
+onMounted(() => {
+  isLayoutReady.value = true
+})
 
 const searchKey = computed(() => resolveSearchFieldKey(props.schema))
 
@@ -115,7 +120,17 @@ const hasActiveFilters = computed(() => computeHasActiveFilters(props.schema, in
 
 const filtersOpen = ref(false)
 
-const showMenu = computed(() => props.forceCompact || !isLargeScreen.value)
+const showMenu = computed(() => {
+  if (props.forceCompact) {
+    return true
+  }
+
+  if (!isLayoutReady.value) {
+    return false
+  }
+
+  return !isLargeScreen.value
+})
 
 const searchSchema = computed(() => {
   const key = searchKey.value
@@ -192,7 +207,6 @@ extendCompodiumMeta({
       <UIPopover
         v-model:open="filtersOpen"
         :auto-focus="false"
-        :lazy-mount="false"
         :intent
         :positioning="{ gutter: 8, placement: 'bottom-end' }"
         :ui="{ content: 'min-w-72 p-0' }"
