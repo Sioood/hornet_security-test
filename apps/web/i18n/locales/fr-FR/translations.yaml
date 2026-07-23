@@ -11,3 +11,27 @@ themeDark: Activer le mode sombre
 themeDarkShort: Sombre
 themeLight: Activer le mode clair
 themeLightShort: Clair
+books:
+  byAuthor: par {author}
+  emptyDescription: Essayez d'élargir votre recherche ou de réinitialiser les filtres.
+  emptyReset: Réinitialiser les filtres
+  emptyTitle: Aucun livre trouvé
+  errorDescription: Impossible de charger la bibliothèque pour le moment.
+  errorRetry: Réessayer
+  errorTitle: Erreur de chargement
+  favoriteBadge: Favori
+  favoritesOnly: Favoris uniquement
+  genreLabel: Genre
+  genrePlaceholder: Tous les genres
+  genres:
+    Fantasy: Fantasy
+    Horror: Horreur
+    Mystery: Policier
+    Non-Fiction: Non-fiction
+    Other: Autre
+    Romance: Romance
+    Science Fiction: Science-fiction
+  loading: Chargement de la bibliothèque
+  results: '{count} livre | {count} livres'
+  searchLabel: Rechercher
+  searchPlaceholder: Titre, auteur, éditeur…

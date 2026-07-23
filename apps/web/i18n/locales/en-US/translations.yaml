@@ -11,3 +11,27 @@ themeDark: Enable dark mode
 themeDarkShort: Dark
 themeLight: Enable light mode
 themeLightShort: Light
+books:
+  byAuthor: by {author}
+  emptyDescription: Try broadening your search or resetting the filters.
+  emptyReset: Reset filters
+  emptyTitle: No books found
+  errorDescription: We could not load the library right now.
+  errorRetry: Try again
+  errorTitle: Loading error
+  favoriteBadge: Favorite
+  favoritesOnly: Favorites only
+  genreLabel: Genre
+  genrePlaceholder: All genres
+  genres:
+    Fantasy: Fantasy
+    Horror: Horror
+    Mystery: Mystery
+    Non-Fiction: Non-fiction
+    Other: Other
+    Romance: Romance
+    Science Fiction: Science Fiction
+  loading: Loading library
+  results: '{count} book | {count} books'
+  searchLabel: Search
+  searchPlaceholder: Title, author, publisher…
