@@ -83,6 +83,7 @@ books:
   publishedLabel: Published
   publisherLabel: Publisher
   removeFavorite: Remove from favorites
+  spineShelfLabel: Spine selection
   results: '{count} book | {count} books'
   searchLabel: Search
   searchPlaceholder: Title, author, publisher…

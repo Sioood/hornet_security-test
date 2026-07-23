@@ -83,6 +83,7 @@ books:
   publishedLabel: Date de publication
   publisherLabel: Éditeur
   removeFavorite: Retirer des favoris
+  spineShelfLabel: Sélection en tranches
   results: '{count} livre | {count} livres'
   searchLabel: Rechercher
   searchPlaceholder: Titre, auteur, éditeur…

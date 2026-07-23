@@ -72,6 +72,12 @@ watch(
 
     <BooksFilterBar ref="filterBarRef" v-model="filterValues" />
 
+    <BooksSpineShelf
+      v-if="!hasListError && (listPending || filteredBooks.length > 0)"
+      :books="filteredBooks"
+      :loading="listPending"
+    />
+
     <UIAlert
       v-if="hasListError"
       :actions="[
