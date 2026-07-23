@@ -34,9 +34,11 @@
     "@hornet_security-test/oxlint": "workspace:^",
     "@nuxt/kit": "catalog:",
     "@playwright/test": "catalog:",
+    "@vueuse/core": "catalog:",
     "eslint": "catalog:",
     "oxfmt": "catalog:",
     "oxlint": "catalog:",
+    "pinia": "catalog:",
     "vitest": "catalog:"
   }
 }
