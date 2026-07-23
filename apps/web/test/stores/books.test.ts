@@ -123,6 +123,34 @@ describe('useBooksStore', () => {
     expect(store.favoriteIds).toEqual([])
   })
 
+  it('tracks multiple favorites', () => {
+    const store = useBooksStore()
+
+    store.toggleFavorite(1)
+    store.toggleFavorite(2)
+
+    expect(store.favoriteIds).toEqual([1, 2])
+    expect(store.isFavorite(1)).toBe(true)
+    expect(store.isFavorite(2)).toBe(true)
+  })
+
+  it('favoriteBooks returns only merged favorite books', async () => {
+    const otherBook = { ...sampleBook, id: 43, title: 'Other Book' }
+    fetchMock.mockResolvedValue({
+      code: 200,
+      data: [sampleBook, otherBook],
+      status: 'OK',
+      total: 2,
+    })
+
+    const store = useBooksStore()
+    await store.fetchBooks()
+    store.toggleFavorite(sampleBook.id)
+
+    expect(store.favoriteBooks).toEqual([sampleBook])
+    expect(store.mergedBooks).toHaveLength(2)
+  })
+
   it('updateBookLocal applies overrides in mergedBooks', async () => {
     fetchMock.mockResolvedValue({
       code: 200,
@@ -140,6 +168,21 @@ describe('useBooksStore', () => {
     expect(store.getBookById(sampleBook.id)?.title).toBe('Updated title')
   })
 
+  it('updateBookLocal applies overrides to mergedCurrentBook', async () => {
+    fetchMock.mockResolvedValue({
+      code: 200,
+      data: sampleBook,
+      status: 'OK',
+    })
+
+    const store = useBooksStore()
+    await store.fetchBookById(sampleBook.id)
+    store.updateBookLocal(sampleBook.id, { title: 'Detail title' })
+
+    expect(store.currentBook?.title).toBe('Sample Book')
+    expect(store.mergedCurrentBook?.title).toBe('Detail title')
+  })
+
   it('deleteBookLocal hides a book from mergedBooks', async () => {
     fetchMock.mockResolvedValue({
       code: 200,
@@ -155,6 +198,23 @@ describe('useBooksStore', () => {
     expect(store.mergedBooks).toEqual([])
     expect(store.getBookById(sampleBook.id)).toBeNull()
     expect(store.books).toEqual([sampleBook])
+  })
+
+  it('restoreBookLocal makes a deleted book visible again', async () => {
+    fetchMock.mockResolvedValue({
+      code: 200,
+      data: [sampleBook],
+      status: 'OK',
+      total: 1,
+    })
+
+    const store = useBooksStore()
+    await store.fetchBooks()
+    store.deleteBookLocal(sampleBook.id)
+    store.restoreBookLocal(sampleBook.id)
+
+    expect(store.mergedBooks).toEqual([sampleBook])
+    expect(store.getBookById(sampleBook.id)).toEqual(sampleBook)
   })
 })
 

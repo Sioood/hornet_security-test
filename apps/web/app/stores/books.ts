@@ -55,6 +55,8 @@ export const useBooksStore = defineStore('books', () => {
     books.value.filter((book) => !isDeleted(book.id)).map((book) => applyOverride(book)),
   )
 
+  const favoriteBooks = computed(() => mergedBooks.value.filter((book) => isFavorite(book.id)))
+
   const mergedCurrentBook = computed(() => {
     if (!currentBook.value || isDeleted(currentBook.value.id)) {
       return null
@@ -105,6 +107,10 @@ export const useBooksStore = defineStore('books', () => {
     }
 
     deletedIds.value = [...deletedIds.value, id]
+  }
+
+  function restoreBookLocal(id: number): void {
+    deletedIds.value = deletedIds.value.filter((deletedId) => deletedId !== id)
   }
 
   async function fetchBooks(query?: Partial<BooksListQuery>): Promise<void> {
@@ -181,6 +187,7 @@ export const useBooksStore = defineStore('books', () => {
     detailError,
     detailPending,
     detailStatus,
+    favoriteBooks,
     favoriteIds,
     fetchBookById,
     fetchBooks,
@@ -198,6 +205,7 @@ export const useBooksStore = defineStore('books', () => {
     pageSize,
     refreshDetail,
     refreshList,
+    restoreBookLocal,
     setPage,
     setPageSize,
     toggleFavorite,
