@@ -12,7 +12,19 @@ themeDarkShort: Sombre
 themeLight: Activer le mode clair
 themeLightShort: Clair
 books:
+  addFavorite: Ajouter aux favoris
+  backToLibrary: Retour à la bibliothèque
   byAuthor: par {author}
+  deleteBook: Supprimer
+  deleteCancel: Annuler
+  deleteConfirm: Supprimer
+  deleteConfirmDescription: « {title} » sera retiré de votre bibliothèque locale. Cette action est réversible uniquement en rechargeant les données.
+  deleteConfirmTitle: Supprimer ce livre ?
+  detailErrorDescription: Impossible de charger ce livre pour le moment.
+  detailErrorTitle: Erreur de chargement
+  detailLoading: Chargement du livre
+  detailTitle: Détail du livre
+  editBook: Modifier
   emptyDescription: Essayez d'élargir votre recherche ou de réinitialiser les filtres.
   emptyReset: Réinitialiser les filtres
   emptyTitle: Aucun livre trouvé
@@ -31,7 +43,14 @@ books:
     Other: Autre
     Romance: Romance
     Science Fiction: Science-fiction
+  invalidIdDescription: L'identifiant du livre est invalide.
+  isbnLabel: ISBN
   loading: Chargement de la bibliothèque
+  notFoundDescription: Ce livre n'existe pas ou a été retiré de votre bibliothèque.
+  notFoundTitle: Livre introuvable
+  publishedLabel: Date de publication
+  publisherLabel: Éditeur
+  removeFavorite: Retirer des favoris
   results: '{count} livre | {count} livres'
   searchLabel: Rechercher
   searchPlaceholder: Titre, auteur, éditeur…

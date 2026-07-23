@@ -12,7 +12,19 @@ themeDarkShort: Dark
 themeLight: Enable light mode
 themeLightShort: Light
 books:
+  addFavorite: Add to favorites
+  backToLibrary: Back to library
   byAuthor: by {author}
+  deleteBook: Delete
+  deleteCancel: Cancel
+  deleteConfirm: Delete
+  deleteConfirmDescription: « {title} » will be removed from your local library. This only persists until you reload the catalog.
+  deleteConfirmTitle: Delete this book?
+  detailErrorDescription: We could not load this book right now.
+  detailErrorTitle: Loading error
+  detailLoading: Loading book
+  detailTitle: Book detail
+  editBook: Edit
   emptyDescription: Try broadening your search or resetting the filters.
   emptyReset: Reset filters
   emptyTitle: No books found
@@ -31,7 +43,14 @@ books:
     Other: Other
     Romance: Romance
     Science Fiction: Science Fiction
+  invalidIdDescription: The book identifier is invalid.
+  isbnLabel: ISBN
   loading: Loading library
+  notFoundDescription: This book does not exist or was removed from your library.
+  notFoundTitle: Book not found
+  publishedLabel: Published
+  publisherLabel: Publisher
+  removeFavorite: Remove from favorites
   results: '{count} book | {count} books'
   searchLabel: Search
   searchPlaceholder: Title, author, publisher…
