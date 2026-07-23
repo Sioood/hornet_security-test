@@ -257,12 +257,7 @@ useHead(() => ({
             variant="subtle"
             @click="deleteDialogOpen = false"
           />
-          <UIButton
-            intent="error"
-            :text="$t('books.deleteConfirm')"
-            variant="solid"
-            @click="confirmDelete"
-          />
+          <UIButton intent="error" :text="$t('books.deleteConfirm')" @click="confirmDelete" />
         </template>
       </UIDialog>
     </div>

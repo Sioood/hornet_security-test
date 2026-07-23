@@ -200,6 +200,45 @@ describe('useBooksStore', () => {
     expect(store.books).toEqual([sampleBook])
   })
 
+  it('createBookLocal adds a book to mergedBooks', () => {
+    const store = useBooksStore()
+
+    const created = store.createBookLocal({
+      author: 'Local Author',
+      description: 'A locally created book.',
+      genre: 'Mystery',
+      image: 'https://example.com/cover.jpg',
+      isbn: '9780000000999',
+      published: '2024-01-01',
+      publisher: 'Local Press',
+      title: 'Local Book',
+    })
+
+    expect(created.id).toBeGreaterThan(0)
+    expect(store.mergedBooks).toContainEqual(created)
+    expect(store.getBookById(created.id)).toEqual(created)
+  })
+
+  it('updateBookLocal updates a locally created book', () => {
+    const store = useBooksStore()
+
+    const created = store.createBookLocal({
+      author: 'Local Author',
+      description: 'A locally created book.',
+      genre: 'Mystery',
+      image: 'https://example.com/cover.jpg',
+      isbn: '9780000000999',
+      published: '2024-01-01',
+      publisher: 'Local Press',
+      title: 'Local Book',
+    })
+
+    store.updateBookLocal(created.id, { title: 'Updated Local Book' })
+
+    expect(store.getBookById(created.id)?.title).toBe('Updated Local Book')
+    expect(store.localBooks[0]?.title).toBe('Updated Local Book')
+  })
+
   it('restoreBookLocal makes a deleted book visible again', async () => {
     fetchMock.mockResolvedValue({
       code: 200,

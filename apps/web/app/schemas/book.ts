@@ -14,6 +14,19 @@ export const bookGenreSchema = z.enum([
   'Other',
 ] satisfies [BookGenre, ...BookGenre[]])
 
+export const bookFormSchema = z.object({
+  author: z.string().trim().min(1),
+  description: z.string(),
+  genre: bookGenreSchema,
+  image: z.string().trim().min(1),
+  isbn: z.string().trim().min(10).max(13),
+  published: publishedDateSchema,
+  publisher: z.string().trim().min(1),
+  title: z.string().trim().min(1),
+})
+
+export type BookFormValues = z.infer<typeof bookFormSchema>
+
 export const bookSchema: z.ZodType<Book> = z.object({
   author: z.string().min(1),
   description: z.string(),

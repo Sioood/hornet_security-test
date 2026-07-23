@@ -14,6 +14,7 @@ themeLightShort: Light
 books:
   addFavorite: Add to favorites
   backToLibrary: Back to library
+  backToBook: Back to book
   byAuthor: by {author}
   deleteBook: Delete
   deleteCancel: Cancel
@@ -33,6 +34,37 @@ books:
   errorTitle: Loading error
   favoriteBadge: Favorite
   favoritesOnly: Favorites only
+  form:
+    cancel: Cancel
+    createSubtitle: Add a book to your local library.
+    createTitle: New book
+    editSubtitle: Update the details for “{title}”.
+    editTitle: Edit book
+    fields:
+      author: Author
+      description: Description
+      genre: Genre
+      image: Cover image URL
+      isbn: ISBN
+      published: Publication date
+      publisher: Publisher
+      title: Title
+    helpers:
+      image: Direct link to an image file (JPG, PNG, WebP…).
+    loading: Loading form
+    placeholders:
+      author: Author name
+      description: Book summary
+      genre: Choose a genre
+      image: https://…
+      isbn: '9780000000000'
+      publisher: Publishing house
+      title: Book title
+    submitCreate: Create book
+    submitEdit: Save changes
+    toastCreateDescription: “{title}” was added to your library.
+    toastEditDescription: “{title}” was updated.
+    toastSuccessTitle: Changes saved
   genreLabel: Genre
   genrePlaceholder: All genres
   genres:

@@ -4,5 +4,6 @@
     <main class="mx-auto w-full max-w-7xl flex-1 px-6 py-10 lg:px-10 lg:py-12">
       <slot />
     </main>
+    <UIToast />
   </div>
 </template>

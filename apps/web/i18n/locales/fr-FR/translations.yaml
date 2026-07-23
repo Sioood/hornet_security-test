@@ -14,6 +14,7 @@ themeLightShort: Clair
 books:
   addFavorite: Ajouter aux favoris
   backToLibrary: Retour à la bibliothèque
+  backToBook: Retour au livre
   byAuthor: par {author}
   deleteBook: Supprimer
   deleteCancel: Annuler
@@ -33,6 +34,37 @@ books:
   errorTitle: Erreur de chargement
   favoriteBadge: Favori
   favoritesOnly: Favoris uniquement
+  form:
+    cancel: Annuler
+    createSubtitle: Ajoutez un ouvrage à votre bibliothèque locale.
+    createTitle: Nouveau livre
+    editSubtitle: Mettez à jour les informations de « {title} ».
+    editTitle: Modifier le livre
+    fields:
+      author: Auteur
+      description: Description
+      genre: Genre
+      image: URL de la couverture
+      isbn: ISBN
+      published: Date de publication
+      publisher: Éditeur
+      title: Titre
+    helpers:
+      image: Lien direct vers une image (JPG, PNG, WebP…).
+    loading: Chargement du formulaire
+    placeholders:
+      author: Nom de l'auteur
+      description: Résumé du livre
+      genre: Choisir un genre
+      image: https://…
+      isbn: '9780000000000'
+      publisher: Maison d'édition
+      title: Titre du livre
+    submitCreate: Créer le livre
+    submitEdit: Enregistrer
+    toastCreateDescription: « {title} » a été ajouté à votre bibliothèque.
+    toastEditDescription: « {title} » a été mis à jour.
+    toastSuccessTitle: Modifications enregistrées
   genreLabel: Genre
   genrePlaceholder: Tous les genres
   genres:

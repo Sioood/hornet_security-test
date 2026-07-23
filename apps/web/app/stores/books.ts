@@ -32,6 +32,7 @@ export const useBooksStore = defineStore('books', () => {
 
   const favoriteIds = useLocalStorage<number[]>('books:favorites', [])
   const deletedIds = useLocalStorage<number[]>('books:deleted', [])
+  const localBooks = useLocalStorage<Book[]>('books:local', [])
   const localOverrides = useLocalStorage<Record<string, Partial<Book>>>('books:overrides', {})
 
   const listPending = computed(() => listStatus.value === 'loading')
@@ -51,9 +52,16 @@ export const useBooksStore = defineStore('books', () => {
     return { ...book, ...override }
   }
 
-  const mergedBooks = computed(() =>
-    books.value.filter((book) => !isDeleted(book.id)).map((book) => applyOverride(book)),
-  )
+  const mergedBooks = computed(() => {
+    const fromApi = books.value
+      .filter((book) => !isDeleted(book.id))
+      .map((book) => applyOverride(book))
+    const fromLocal = localBooks.value
+      .filter((book) => !isDeleted(book.id))
+      .map((book) => applyOverride(book))
+
+    return [...fromApi, ...fromLocal]
+  })
 
   const favoriteBooks = computed(() => mergedBooks.value.filter((book) => isFavorite(book.id)))
 
@@ -69,6 +77,11 @@ export const useBooksStore = defineStore('books', () => {
       return null
     }
 
+    const fromLocal = localBooks.value.find((book) => book.id === id)
+    if (fromLocal) {
+      return applyOverride(fromLocal)
+    }
+
     const fromList = books.value.find((book) => book.id === id)
     const fromDetail = currentBook.value?.id === id ? currentBook.value : null
     const base = fromDetail ?? fromList ?? null
@@ -78,6 +91,18 @@ export const useBooksStore = defineStore('books', () => {
     }
 
     return applyOverride(base)
+  }
+
+  function nextBookId(): number {
+    const ids = [...books.value.map((book) => book.id), ...localBooks.value.map((book) => book.id)]
+
+    return ids.length > 0 ? Math.max(...ids) + 1 : 1
+  }
+
+  function createBookLocal(input: Omit<Book, 'id'>): Book {
+    const created: Book = { ...input, id: nextBookId() }
+    localBooks.value = [...localBooks.value, created]
+    return created
   }
 
   function isFavorite(id: number): boolean {
@@ -94,6 +119,21 @@ export const useBooksStore = defineStore('books', () => {
   }
 
   function updateBookLocal(id: number, patch: Partial<Book>): void {
+    const localIndex = localBooks.value.findIndex((book) => book.id === id)
+
+    if (localIndex >= 0) {
+      const updated = { ...localBooks.value[localIndex]!, ...patch }
+      localBooks.value = localBooks.value.map((book, index) =>
+        index === localIndex ? updated : book,
+      )
+
+      if (currentBook.value?.id === id) {
+        currentBook.value = updated
+      }
+
+      return
+    }
+
     const key = String(id)
     localOverrides.value = {
       ...localOverrides.value,
@@ -180,6 +220,7 @@ export const useBooksStore = defineStore('books', () => {
 
   return {
     books,
+    createBookLocal,
     currentBook,
     currentBookId,
     deleteBookLocal,
@@ -198,6 +239,7 @@ export const useBooksStore = defineStore('books', () => {
     listError,
     listPending,
     listStatus,
+    localBooks,
     localOverrides,
     mergedBooks,
     mergedCurrentBook,
