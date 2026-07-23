@@ -17,6 +17,7 @@ export default defineEventHandler(async (event) => {
 
   return getBooksList(parsedQuery.data, {
     fakerApiBaseUrl: config.fakerApiBaseUrl,
+    fakerApiCooldownMs: Number(config.fakerApiCooldownMs),
     fakerApiTimeout: Number(config.fakerApiTimeout),
   })
 })

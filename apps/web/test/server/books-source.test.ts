@@ -1,12 +1,18 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { getBookById, getBooksList, paginateBooks } from '../../server/utils/books-source'
+import {
+  getBookById,
+  getBooksList,
+  paginateBooks,
+  resetFakerApiCircuitForTests,
+} from '../../server/utils/books-source'
 
 import type { Book } from '../../app/types/book'
 import type { BooksSourceConfig } from '../../server/utils/books-source'
 
 const testConfig = {
   fakerApiBaseUrl: 'https://fakerapi.it/api/v1',
+  fakerApiCooldownMs: 60_000,
   fakerApiTimeout: 3000,
 } satisfies BooksSourceConfig
 
@@ -67,6 +73,9 @@ describe('paginateBooks', () => {
 
 describe('getBooksList', () => {
   beforeEach(() => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-01-01T00:00:00.000Z'))
+    resetFakerApiCircuitForTests()
     fetchMock.mockReset()
     vi.stubGlobal('$fetch', fetchMock)
   })
@@ -74,6 +83,8 @@ describe('getBooksList', () => {
   afterEach(() => {
     vi.unstubAllGlobals()
     vi.restoreAllMocks()
+    vi.useRealTimers()
+    resetFakerApiCircuitForTests()
   })
 
   it('returns validated FakerAPI data when the request succeeds', async () => {
@@ -107,10 +118,46 @@ describe('getBooksList', () => {
     expect(result.data[0]?.id).toBe(6)
     expect(result.data[0]?.title).toBe('Midnight Equations')
   })
+
+  it('skips FakerAPI while the cooldown is active', async () => {
+    fetchMock.mockRejectedValue(new Error('FakerAPI unavailable'))
+
+    await getBooksList({ _page: 1, _quantity: 5 }, testConfig)
+    await getBooksList({ _page: 2, _quantity: 5 }, testConfig)
+
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('retries FakerAPI after the cooldown expires', async () => {
+    fetchMock.mockRejectedValueOnce(new Error('FakerAPI unavailable'))
+    fetchMock.mockResolvedValueOnce({
+      code: 200,
+      data: [sampleBook],
+      status: 'OK',
+      total: 1,
+    })
+
+    await getBooksList({ _page: 1, _quantity: 5 }, testConfig)
+
+    vi.advanceTimersByTime(testConfig.fakerApiCooldownMs)
+
+    const result = await getBooksList({ _page: 1, _quantity: 5 }, testConfig)
+
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+    expect(result).toEqual({
+      code: 200,
+      data: [sampleBook],
+      status: 'OK',
+      total: 1,
+    })
+  })
 })
 
 describe('getBookById', () => {
   beforeEach(() => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-01-01T00:00:00.000Z'))
+    resetFakerApiCircuitForTests()
     fetchMock.mockReset()
     vi.stubGlobal('$fetch', fetchMock)
   })
@@ -118,6 +165,8 @@ describe('getBookById', () => {
   afterEach(() => {
     vi.unstubAllGlobals()
     vi.restoreAllMocks()
+    vi.useRealTimers()
+    resetFakerApiCircuitForTests()
   })
 
   it('returns a book from FakerAPI detail response', async () => {
@@ -150,5 +199,14 @@ describe('getBookById', () => {
     const result = await getBookById(99_999, testConfig)
 
     expect(result).toBeNull()
+  })
+
+  it('shares the cooldown with list requests', async () => {
+    fetchMock.mockRejectedValue(new Error('FakerAPI unavailable'))
+
+    await getBooksList({ _page: 1, _quantity: 5 }, testConfig)
+    await getBookById(3, testConfig)
+
+    expect(fetchMock).toHaveBeenCalledTimes(1)
   })
 })

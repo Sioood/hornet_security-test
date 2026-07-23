@@ -18,6 +18,7 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const book = await getBookById(parsedId.data, {
     fakerApiBaseUrl: config.fakerApiBaseUrl,
+    fakerApiCooldownMs: Number(config.fakerApiCooldownMs),
     fakerApiTimeout: Number(config.fakerApiTimeout),
   })
 

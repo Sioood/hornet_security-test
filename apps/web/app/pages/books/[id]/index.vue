@@ -226,7 +226,7 @@ useHead(() => ({
               :intent="isFavorite(book.id) ? 'accent' : 'neutral'"
               size="sm"
               :text="isFavorite(book.id) ? $t('books.removeFavorite') : $t('books.addFavorite')"
-              :variant="isFavorite(book.id) ? 'solid' : 'subtle'"
+              :variant="isFavorite(book.id) ? 'default' : 'subtle'"
               @click="toggleFavorite(book.id)"
             />
 
