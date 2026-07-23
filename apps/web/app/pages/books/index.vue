@@ -2,6 +2,10 @@
 import type { Book } from '../types/book'
 import type { FilterValues } from '~ui/app/utils/Components/Filter/schema'
 
+definePageMeta({
+  viewTransition: true,
+})
+
 const LIST_PAGE_SIZE = 12
 const CATALOG_PAGE_SIZE = 100
 

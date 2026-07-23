@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { bookCoverViewTransitionName } from '../../../utils/book-view-transition'
+
+definePageMeta({
+  viewTransition: true,
+})
+
 const route = useRoute()
 const router = useRouter()
 const { locale, t } = useI18n()
@@ -160,7 +166,10 @@ useHead(() => ({
         v-else-if="book"
         class="grid gap-8 lg:grid-cols-[minmax(0,20rem)_1fr] lg:items-start"
       >
-        <div class="relative aspect-3/4 overflow-hidden rounded-xs bg-neutral-surface">
+        <div
+          class="relative aspect-3/4 overflow-hidden rounded-xs bg-neutral-surface"
+          :style="{ viewTransitionName: bookCoverViewTransitionName(book.id) }"
+        >
           <NuxtImg
             :alt="book.title"
             class="size-full object-cover"

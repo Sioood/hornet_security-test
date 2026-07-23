@@ -1,5 +1,12 @@
 <script setup lang="ts">
+import { bookCoverViewTransitionName } from '../utils/book-view-transition'
+
 import type { Book } from '../types/book'
+
+
+definePageMeta({
+  viewTransition: true,
+})
 
 const props = defineProps<{
   book: Book
@@ -39,7 +46,10 @@ const formattedPublished = computed(() => {
         :card-base-ui="{ root: 'h-full flex flex-1 flex-col', body: 'flex flex-1 flex-col' }"
         :ui="{ content: 'flex flex-1 flex-col gap-4' }"
       >
-        <div class="relative aspect-3/4 overflow-hidden rounded-xs bg-neutral-surface">
+        <div
+          class="relative aspect-3/4 overflow-hidden rounded-xs bg-neutral-surface"
+          :style="{ viewTransitionName: bookCoverViewTransitionName(book.id) }"
+        >
           <NuxtImg
             :alt="book.title"
             class="size-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"

@@ -9,6 +9,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: [resolve('../../packages/ui')],
 
+  experimental: {
+    viewTransition: true,
+  },
+
   fonts: {
     families: [{ name: 'Cormorant Garamond', provider: 'google', weights: [500, 600, 700] }],
   },
