@@ -88,16 +88,36 @@ const { isLeading, isTrailing, leadingIconName, trailingIconName, shouldAnimate 
 const iconClass = (slotClass: ClassValue | undefined) =>
   cn(buttonIconCVA({ size: props.size }), { 'animate-spin': shouldAnimate.value }, slotClass)
 
-const linkProps = computed(
-  () => props as Omit<typeof props, keyof ButtonProps | keyof UseComponentIconsProps>,
-)
+const linkProps = computed(() => pick(props, ['external', 'rel', 'target', 'to'] as const))
 
 const attrs = useAttrs()
+
+const rootClass = computed(() =>
+  cn(
+    button({
+      disabled: props.disabled || effectiveState.value !== 'default',
+      intent: ['success', 'error'].includes(effectiveState.value)
+        ? (effectiveState.value as 'success' | 'error')
+        : props.intent,
+      size: props.size,
+      variant: props.variant,
+    }),
+    attrs.class as ClassValue,
+    props.ui?.root,
+  ),
+)
 
 const buttonRootAttrs = computed(() => {
   const { class: _cls, ...rest } = attrs as Record<string, unknown> & { class?: unknown }
   return rest
 })
+
+const linkRootProps = computed(() => ({
+  ...buttonRootAttrs.value,
+  ...linkProps.value,
+  styled: false,
+  ui: { root: rootClass.value },
+}))
 
 const handleClick = async (event: MouseEvent) => {
   if (!props.onClick || props.to || internalState.value !== 'default' || props.disabled) return
@@ -171,31 +191,15 @@ extendCompodiumMeta({
     :is="to ? Link : 'button'"
     ref="rootRef"
     v-bind="
-      mergeProps(
-        buttonRootAttrs,
-        to
-          ? { ...linkProps, disabled }
-          : {
-              type,
-              disabled: props.disabled || effectiveState === 'loading',
-              onClick: handleClick,
-            },
-      )
+      to
+        ? linkRootProps
+        : mergeProps(buttonRootAttrs, {
+            disabled: props.disabled || effectiveState === 'loading',
+            onClick: handleClick,
+            type,
+          })
     "
-    :class="
-      cn(
-        button({
-          variant,
-          intent: ['success', 'error'].includes(effectiveState)
-            ? (effectiveState as 'success' | 'error')
-            : intent,
-          size,
-          disabled: disabled || effectiveState !== 'default',
-        }),
-        attrs.class,
-        ui?.root,
-      )
-    "
+    :class="to ? undefined : rootClass"
   >
     <Icon v-if="isLeading" :name="leadingIconName" :class="iconClass(ui?.leadingIcon)" />
     <slot>

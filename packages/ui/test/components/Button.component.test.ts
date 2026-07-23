@@ -101,6 +101,7 @@ describe('Button', () => {
   it('renders as a link when `to` is an external URL', async () => {
     const wrapper = await mountSuspended(Button, {
       props: {
+        icon: 'tabler:external-link',
         text: 'Docs',
         to: 'https://example.com/docs',
       },
@@ -110,6 +111,11 @@ describe('Button', () => {
     expect(anchor.exists()).toBe(true)
     expect(anchor.attributes('href')).toMatch(/example\.com/)
     expect(anchor.attributes('target')).toBe('_blank')
+    expect(anchor.classes()).toContain('inline-flex')
+    expect(anchor.classes()).toContain('items-center')
+    expect(anchor.classes()).toContain('gap-3')
+    expect(anchor.find('svg').exists()).toBe(true)
+    expect(anchor.text()).toContain('Docs')
   })
 
   it('renders a trailing icon when trailing + trailingIcon are set', async () => {
