@@ -11,3 +11,11 @@
 @source '../../app/pages/*';
 @source '../../app/app.vue';
 @source '../../app/error.vue';
+
+@theme {
+  --font-display: 'Cormorant Garamond', serif;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}

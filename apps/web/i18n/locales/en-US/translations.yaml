@@ -1,1 +1,13 @@
-hell: 'World (wide web)'
+appName: Book Library
+appTagline: Your digital reading lounge
+librarySubtitle: Explore, filter, and keep your books in a warm, spacious space.
+libraryTitle: The library
+navLanguage: Language
+navLibrary: Library
+navMain: Main navigation
+navTheme: Theme
+themeAuto: Auto
+themeDark: Enable dark mode
+themeDarkShort: Dark
+themeLight: Enable light mode
+themeLightShort: Light

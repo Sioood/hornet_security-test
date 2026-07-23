@@ -9,6 +9,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: [resolve('../../packages/ui')],
 
+  fonts: {
+    families: [{ name: 'Cormorant Garamond', provider: 'google', weights: [500, 600, 700] }],
+  },
+
   app: {
     head: {
       link: [{ href: '/manifest.webmanifest', rel: 'manifest' }],

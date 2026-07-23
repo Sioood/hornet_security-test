@@ -142,7 +142,7 @@ extendCompodiumMeta({
       <UISegmentGroupItemText :ui="{ root: ui?.itemText }">
         {{ option.label ?? option.value }}
       </UISegmentGroupItemText>
-      <UISegmentGroupItemControl :ui="{ root: cn('hidden', ui?.itemControl) }" />
+      <UISegmentGroupItemControl :ui="{ root: ui?.itemControl }" />
       <UISegmentGroupItemHiddenInput />
     </UISegmentGroupItem>
     <slot />
@@ -167,7 +167,7 @@ extendCompodiumMeta({
       <UISegmentGroupItemText :ui="{ root: ui?.itemText }">
         {{ option.label ?? option.value }}
       </UISegmentGroupItemText>
-      <UISegmentGroupItemControl :ui="{ root: cn('hidden', ui?.itemControl) }" />
+      <UISegmentGroupItemControl :ui="{ root: ui?.itemControl }" />
       <UISegmentGroupItemHiddenInput />
     </UISegmentGroupItem>
     <slot />

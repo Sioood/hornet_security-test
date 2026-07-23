@@ -197,6 +197,18 @@ describe('UISegmentGroup', () => {
     expect(wrapper.exists()).toBe(true)
   })
 
+  it('hides item-control so labels stay centered', async () => {
+    const wrapper = await mountSuspended(UISegmentGroup, {
+      props: {
+        options: [{ label: 'A', value: 'a' }],
+      },
+    })
+
+    const control = wrapper.find('[data-part="item-control"]')
+    expect(control.exists()).toBe(true)
+    expect(control.classes()).toContain('hidden')
+  })
+
   it('updates v-model when segment selection changes internally', async () => {
     const model = ref('a')
 

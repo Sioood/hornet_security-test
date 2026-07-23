@@ -1,1 +1,13 @@
-hell: 'Monde (web)'
+appName: Bibliothèque
+appTagline: Votre salon de lecture numérique
+librarySubtitle: Explorez, filtrez et conservez vos ouvrages dans un espace chaleureux.
+libraryTitle: La bibliothèque
+navLanguage: Langue
+navLibrary: Bibliothèque
+navMain: Navigation principale
+navTheme: Thème
+themeAuto: Auto
+themeDark: Activer le mode sombre
+themeDarkShort: Sombre
+themeLight: Activer le mode clair
+themeLightShort: Clair
