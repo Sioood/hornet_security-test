@@ -5,8 +5,8 @@
     ".": {},
     "apps/web": {
       "entry": ["i18n/locales/**/*.ts"],
-      "project": ["app/**/*.{ts,vue}", "i18n/**/*.ts"],
-      "ignoreDependencies": ["@hornet_security-test/ui", "vue", "vue-router"]
+      "project": ["app/**/*.{ts,vue}", "server/**/*.{ts,vue}", "i18n/**/*.ts"],
+      "ignoreDependencies": ["@hornet_security-test/ui", "vue-router"]
     },
     "packages/config/oxlint": {
       "entry": [

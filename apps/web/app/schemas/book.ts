@@ -59,4 +59,3 @@ export const booksListQuerySchema = z.object({
 })
 
 export type BooksListQuery = z.infer<typeof booksListQuerySchema>
-export type BookDetailResponse = z.infer<typeof bookDetailResponseSchema>
