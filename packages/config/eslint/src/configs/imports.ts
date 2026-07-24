@@ -25,6 +25,24 @@ export const imports = defineConfig([
             'type',
           ],
           'newlines-between': 'always',
+          pathGroups: [
+            {
+              group: 'internal',
+              pattern: '~nuxt-essentials/**',
+              position: 'before',
+            },
+            {
+              group: 'internal',
+              pattern: '~ui/**',
+              position: 'before',
+            },
+            {
+              group: 'internal',
+              pattern: '@hornet_security-test/**',
+              position: 'before',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin', 'external'],
         },
       ],
     },
