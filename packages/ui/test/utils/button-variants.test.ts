@@ -21,11 +21,11 @@ describe('buttonVariants', () => {
 
     const md = button({ size: 'md' })
     expect(md).toContain('txt-base')
-    expect(md).toContain('px-4')
+    expect(md).toContain('px-3')
 
     const lg = button({ size: 'lg' })
-    expect(lg).toContain('txt-h6')
-    expect(lg).toContain('px-5')
+    expect(lg).toContain('txt-label')
+    expect(lg).toContain('px-4')
   })
 
   it('applies disabled state classes', () => {
