@@ -39,7 +39,9 @@
 
   .book-list-enter-active,
   .book-list-leave-active {
-    transition: opacity 0.22s ease-in-out, transform 0.22s ease-in-out;
+    transition:
+      opacity 0.22s ease-in-out,
+      transform 0.22s ease-in-out;
   }
 
   .book-list-enter-from,

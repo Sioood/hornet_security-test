@@ -1,4 +1,3 @@
-
 import namespace from './namespace.json'
 import translations from './translations.yaml'
 

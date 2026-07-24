@@ -17,7 +17,17 @@ services:
     env_file:
       - path: apps/web/.env
         required: false
-    command: ['pnpm', '--filter', '@hornet_security-test/web', 'dev', '--host', '0.0.0.0', '--port', '3000']
+    command:
+      [
+        'pnpm',
+        '--filter',
+        '@hornet_security-test/web',
+        'dev',
+        '--host',
+        '0.0.0.0',
+        '--port',
+        '3000',
+      ]
 
 volumes:
   web_node_modules: {}

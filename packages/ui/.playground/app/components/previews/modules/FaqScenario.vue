@@ -33,6 +33,8 @@ const faqItems = [
         </UIAccordionItemContent>
       </UIAccordionItem>
     </UIAccordion>
-    <UILink to="mailto:support@hornet_security-test.dev" class="txt-caption"> Contacter le support </UILink>
+    <UILink to="mailto:support@hornet_security-test.dev" class="txt-caption">
+      Contacter le support
+    </UILink>
   </div>
 </template>
