@@ -1,3 +1,155 @@
+# hornet_security-test
+
+This project is a test for the recruitment process at Hornet Security.
+
+## Book Library — Technical Test
+
+**Theme:** personal book library powered by [FakerAPI](https://fakerapi.it/) (`/books` endpoint).
+At the time of development, FakerAPI was down, so I used a JSON file as a fallback, using it the same way i would have used the API.
+
+The home page redirects to `/books`. Users can browse a catalog, open book details, search and filter, paginate results, manage favorites, and create/edit/delete books locally (persisted in `localStorage` until the catalog is refreshed).
+
+### How to run
+
+**Prerequisites:** Node.js >= 25.8.0, pnpm 10.33+ (see [Prerequisites](#prerequisites) below).
+
+```bash
+git clone <repo-url>
+cd hornet_security-test
+pnpm install
+
+# Optional: copy runtime config (FakerAPI URL, timeouts, site URL)
+cp apps/web/.env.example apps/web/.env
+
+# Start the web app (http://localhost:3000)
+pnpm --filter @hornet_security-test/web dev
+```
+
+**Production preview:**
+
+```bash
+pnpm --filter @hornet_security-test/web build
+pnpm --filter @hornet_security-test/web preview
+```
+
+**Tests:**
+
+```bash
+pnpm --filter @hornet_security-test/web test        # Vitest (store, server utils)
+pnpm --filter @hornet_security-test/web test:e2e    # Playwright (app shell, i18n, 404)
+pnpm test                                         # Full monorepo test suite (UI + web)
+pnpm lint && pnpm check-types                     # CI-equivalent checks
+```
+
+**Docker** (optional): see [`apps/web/README.md`](apps/web/README.md).
+
+### Features vs. requirements
+
+| Requirement            | Implementation                                                                                      |
+| ---------------------- | --------------------------------------------------------------------------------------------------- |
+| FakerAPI HTTP calls    | Nitro routes `GET /api/books` and `GET /api/books/:id` proxy FakerAPI; responses validated with Zod |
+| Loading / error states | Skeleton grid on list; error panel with retry; detail page loading and error UI                     |
+| Item list              | `/books` — responsive card grid + decorative spine shelf                                            |
+| Detail view            | `/books/:id` — cover, metadata, favorite toggle, edit/delete                                        |
+| Search                 | Text search on title, author, publisher, ISBN (`BooksFilterBar` + Fuse.js via UI `Filter`)          |
+| Filters                | Genre multi-select, favorites-only toggle                                                           |
+| Pagination             | Client-side pagination (12 items/page) after catalog load                                           |
+| Favorites              | Pinia store + `localStorage` (`books:favorites`)                                                    |
+| Form                   | Create (`/books/new`) and edit (`/books/:id/edit`) with TanStack Form + Zod                         |
+| Local edit / delete    | Overrides and deletions in `localStorage`; locally created books kept in `books:local`              |
+| Navigation             | App header, breadcrumbs-style back links, Nuxt routing                                              |
+| Responsive design      | Breakpoints from 1 to 4 columns; mobile-friendly filter bar and forms                               |
+
+**Bonus items delivered:**
+
+- **Unit tests** — `books` Pinia store, `books-source` server util (circuit breaker + fixtures), `book-spine` utils
+- **E2E tests** — Playwright smoke tests (shell, i18n, PWA manifest, 404)
+- **i18n** — French (default) and English (`fr-FR` / `en-US`)
+- **Animations** — View Transitions API on book covers (list ↔ detail), `TransitionGroup` on list updates
+- **Performance** — Server-side circuit breaker when FakerAPI is slow/unavailable; client skips redundant detail fetches when the book is already in store; catalog fetched once (100 items) then filtered/paginated client-side
+- **Accessibility** — Semantic headings, focus-visible styles, Ark UI primitives for interactive controls
+- **Documentation** — This README + `apps/web/AGENTS.md`
+
+### Technical choices
+
+| Area       | Choice                                                                          | Rationale                                                                            |
+| ---------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Framework  | Nuxt 4 (Vue 3)                                                                  | SSR/SSG capable, file-based routing, Nitro server routes for API proxy               |
+| Monorepo   | pnpm + Turborepo                                                                | Shared UI layer and tooling configs across packages                                  |
+| UI         | Custom design system (`@hornet_security-test/ui`) on Ark UI + Tailwind v4 + CVA | Accessible primitives, consistent tokens, reusable `Filter` / form components        |
+| State      | Pinia + VueUse `useLocalStorage`                                                | Centralized async state for API data; durable local mutations without a backend      |
+| Validation | Zod v4                                                                          | Runtime parsing of FakerAPI payloads and form input                                  |
+| API layer  | Nitro server routes + `books-source`                                            | Hides external API from the client, enables timeout/circuit-breaker/fixture fallback |
+| Resilience | Circuit breaker + JSON fixtures                                                 | FakerAPI can be slow or unavailable; app stays usable in dev and CI                  |
+| i18n       | `@nuxtjs/i18n`                                                                  | Bilingual UI without hard-coded strings                                              |
+| Testing    | Vitest + Playwright                                                             | Fast unit tests for critical logic; E2E for shell regressions                        |
+
+**FakerAPI configuration** (`apps/web/nuxt.config.ts` / `.env`):
+
+- `NUXT_FAKER_API_BASE_URL` — API base (default `https://fakerapi.it/api/v1`)
+- `NUXT_FAKER_API_TIMEOUT` — per-request timeout (ms)
+- `NUXT_FAKER_API_COOLDOWN_MS` — after a failure, skip live API and serve fixtures until cooldown ends
+
+### Architecture
+
+```
+Browser (Vue pages + Pinia store)
+    │
+    │  $fetch('/api/books' | '/api/books/:id')
+    ▼
+Nitro server routes (apps/web/server/api/books/)
+    │
+    ▼
+books-source.ts
+    ├── try FakerAPI (HTTP, Zod-validated)
+    └── on timeout/error → circuit breaker → books.fixture.json
+```
+
+**`apps/web` layout (feature code):**
+
+```
+app/
+├── pages/books/          # list, detail, new, edit
+├── components/           # BookCard, BookForm, BooksFilterBar, BooksSpineShelf, …
+├── stores/books.ts       # fetch, favorites, local CRUD
+├── schemas/book.ts       # Zod schemas (API + forms)
+├── types/book.ts         # TypeScript types
+└── utils/                # view-transition names, spine styling
+server/
+├── api/books/            # GET handlers
+├── utils/books-source.ts # FakerAPI + fallback
+└── data/books.fixture.json
+```
+
+The app extends `packages/ui` (components, theme) and `packages/nuxt-essentials` (i18n, security, PWA, Pinia). See [Monorepo Structure](#monorepo-structure) below for the full tree.
+
+### Possible improvements
+
+- **E2E coverage for books flows** — list filtering, create/edit/delete, favorite toggle (current E2E focuses on app shell)
+- **Server-side pagination/filtering** — avoid loading the full catalog when the dataset grows
+- **Sorting** — by title, author, or publication date
+- **Persistent backend** — replace `localStorage` mutations with a real API
+- **Image reliability** — fallback covers when FakerAPI image URLs break
+- **Offline / PWA** — cache last catalog for read-only offline browsing
+- **a11y audit** — formal WCAG pass with axe-core in CI
+- **Books E2E in CI** — dedicated Playwright spec against `/books` routes
+
+### Time spent
+
+Approximately **2/3 hours** using AI, including:
+
+- Feature implementation (list, detail, forms, filters, local state)
+- Server proxy, circuit breaker, and fixture fallback
+- UI polish (spine shelf, view transitions, responsive layout)
+- Unit tests and CI/lint fixes
+- Documentation
+
+---
+
+It is based on an existing boilerplate project of mine called "Ställning". You can get more information about it below.
+
+---
+
 <div align="center">
   <h1><b>Ställning</b></h1>
   <span><i>[ˈstɛlː.nɪŋ]</i>: meaning "scaffold" in swedish</span>
@@ -466,7 +618,3 @@ Install from `.vscode/.code-workspace` — search `@recommended` in the Extensio
 ## Evolution
 
 This boilerplate evolves continuously. Open an issue for feedback or suggestions.
-
-# hornet_security-test
-
-# hornet_security-test
