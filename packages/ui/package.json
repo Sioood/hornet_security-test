@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare && nuxt prepare .playground",
     "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
     "lint:fix": "pnpm run lint:oxlint --fix && pnpm run lint:eslint --fix",
-    "lint:oxlint": "pnpm exec oxlint -c .oxlintrc.json .",
+    "lint:oxlint": "pnpm exec oxlint -c .oxlintrc.json . --threads 2",
     "lint:eslint": "pnpm exec eslint .",
     "test": "vitest run --project ui-unit --project ui-component",
     "test:coverage": "vitest run --coverage --project ui-unit --project ui-component",

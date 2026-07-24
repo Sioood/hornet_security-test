@@ -23,5 +23,13 @@
     "prefer-destructuring": "error",
     "sort-keys": ["error", "asc", { "allowLineSeparatedGroups": true, "natural": true }]
   },
-  "ignorePatterns": ["**/node_modules/**", "**/dist/**"]
+  "ignorePatterns": ["**/node_modules/**", "**/dist/**"],
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.component.test.ts", "test/**/*.ts"],
+      "rules": {
+        "sort-keys": "off"
+      }
+    }
+  ]
 }
