@@ -49,7 +49,7 @@ const signaturePadShellCVA = cva('flex w-full min-w-0 items-stretch gap-0.5 bord
       variant: 'default',
     },
     {
-      class: 'border-neutral text-neutral bg-neutral-fill-subtle',
+      class: 'border-neutral-border bg-neutral-fill-subtle text-neutral-text-disabled',
       disabled: true,
       intent: 'neutral',
       variant: 'default',
@@ -62,7 +62,7 @@ const signaturePadShellCVA = cva('flex w-full min-w-0 items-stretch gap-0.5 bord
       variant: 'default',
     },
     {
-      class: 'border-primary text-primary bg-primary-fill-subtle',
+      class: 'border-primary-border bg-primary-fill-subtle text-primary-text-disabled',
       disabled: true,
       intent: 'primary',
       variant: 'default',
@@ -75,7 +75,7 @@ const signaturePadShellCVA = cva('flex w-full min-w-0 items-stretch gap-0.5 bord
       variant: 'default',
     },
     {
-      class: 'border-secondary text-secondary bg-secondary-fill-subtle',
+      class: 'border-secondary-border bg-secondary-fill-subtle text-secondary-text-disabled',
       disabled: true,
       intent: 'secondary',
       variant: 'default',
@@ -88,7 +88,7 @@ const signaturePadShellCVA = cva('flex w-full min-w-0 items-stretch gap-0.5 bord
       variant: 'default',
     },
     {
-      class: 'border-accent text-accent bg-accent-fill-subtle',
+      class: 'border-accent-border bg-accent-fill-subtle text-accent-text-disabled',
       disabled: true,
       intent: 'accent',
       variant: 'default',
@@ -101,7 +101,7 @@ const signaturePadShellCVA = cva('flex w-full min-w-0 items-stretch gap-0.5 bord
       variant: 'subtle',
     },
     {
-      class: 'border-neutral text-neutral bg-transparent',
+      class: 'border-neutral-border bg-transparent text-neutral-text-disabled',
       disabled: true,
       intent: 'neutral',
       variant: 'subtle',
@@ -114,7 +114,7 @@ const signaturePadShellCVA = cva('flex w-full min-w-0 items-stretch gap-0.5 bord
       variant: 'subtle',
     },
     {
-      class: 'border-primary text-primary bg-transparent',
+      class: 'border-primary-border bg-transparent text-primary-text-disabled',
       disabled: true,
       intent: 'primary',
       variant: 'subtle',
@@ -127,7 +127,7 @@ const signaturePadShellCVA = cva('flex w-full min-w-0 items-stretch gap-0.5 bord
       variant: 'subtle',
     },
     {
-      class: 'border-secondary text-secondary bg-transparent',
+      class: 'border-secondary-border bg-transparent text-secondary-text-disabled',
       disabled: true,
       intent: 'secondary',
       variant: 'subtle',
@@ -140,7 +140,7 @@ const signaturePadShellCVA = cva('flex w-full min-w-0 items-stretch gap-0.5 bord
       variant: 'subtle',
     },
     {
-      class: 'border-accent text-accent bg-transparent',
+      class: 'border-accent-border bg-transparent text-accent-text-disabled',
       disabled: true,
       intent: 'accent',
       variant: 'subtle',

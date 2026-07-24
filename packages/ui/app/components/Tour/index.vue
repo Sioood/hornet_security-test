@@ -183,7 +183,7 @@ const tourActionTriggerCVA = cva(
       variant: {
         default:
           'border border-neutral-border bg-transparent text-neutral-text hover:bg-neutral-fill-subtle disabled:pointer-events-none disabled:opacity-40',
-        primary: 'border-primary-fill bg-primary-fill text-primary-on-fill hover:bg-primary-fill',
+        primary: 'border-primary-fill bg-primary-fill text-primary-on-fill',
       },
     },
   },

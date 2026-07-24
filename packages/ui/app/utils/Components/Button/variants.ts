@@ -182,145 +182,145 @@ export const toggleCVA = cva('', {
   compoundVariants: [
     {
       class:
-        'data-[state=on]:text-neutral-text-inverse-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-neutral-border-active data-[state=on]:bg-neutral-fill-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-neutral-border-active data-[state=on]:bg-neutral-fill-active data-[state=on]:text-neutral-on-fill',
       intent: 'neutral',
       variant: 'default',
     },
     {
       class:
-        'data-[state=on]:text-primary-text-inverse-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-primary-border-active data-[state=on]:bg-primary-fill-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-primary-border-active data-[state=on]:bg-primary-fill-active data-[state=on]:text-primary-on-fill',
       intent: 'primary',
       variant: 'default',
     },
     {
       class:
-        'data-[state=on]:text-secondary-text-inverse-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-secondary-border-active data-[state=on]:bg-secondary-fill-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-secondary-border-active data-[state=on]:bg-secondary-fill-active data-[state=on]:text-secondary-on-fill',
       intent: 'secondary',
       variant: 'default',
     },
     {
       class:
-        'data-[state=on]:text-accent-text-inverse-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-accent-border-active data-[state=on]:bg-accent-fill-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-accent-border-active data-[state=on]:bg-accent-fill-active data-[state=on]:text-accent-on-fill',
       intent: 'accent',
       variant: 'default',
     },
     {
       class:
-        'data-[state=on]:text-info-text-inverse-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-info-border-active data-[state=on]:bg-info-fill-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-info-border-active data-[state=on]:bg-info-fill-active data-[state=on]:text-info-on-fill',
       intent: 'info',
       variant: 'default',
     },
     {
       class:
-        'data-[state=on]:text-warning-text-inverse-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-warning-border-active data-[state=on]:bg-warning-fill-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-warning-border-active data-[state=on]:bg-warning-fill-active data-[state=on]:text-warning-on-fill',
       intent: 'warning',
       variant: 'default',
     },
     {
       class:
-        'data-[state=on]:text-error-text-inverse-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-error-border-active data-[state=on]:bg-error-fill-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-error-border-active data-[state=on]:bg-error-fill-active data-[state=on]:text-error-on-fill',
       intent: 'error',
       variant: 'default',
     },
     {
       class:
-        'data-[state=on]:text-success-text-inverse-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-success-border-active data-[state=on]:bg-success-fill-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-success-border-active data-[state=on]:bg-success-fill-active data-[state=on]:text-success-on-fill',
       intent: 'success',
       variant: 'default',
     },
     {
       class:
-        'data-[state=on]:text-primary-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-primary-border-subtle-active data-[state=on]:bg-primary-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-primary-border-subtle-active data-[state=on]:bg-primary-fill-subtle-active data-[state=on]:text-primary-text-subtle',
       intent: 'primary',
       variant: 'subtle',
     },
     {
       class:
-        'data-[state=on]:text-secondary-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-secondary-border-subtle-active data-[state=on]:bg-secondary-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-secondary-border-subtle-active data-[state=on]:bg-secondary-fill-subtle-active data-[state=on]:text-secondary-text-subtle',
       intent: 'secondary',
       variant: 'subtle',
     },
     {
       class:
-        'data-[state=on]:text-accent-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-accent-border-subtle-active data-[state=on]:bg-accent-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-accent-border-subtle-active data-[state=on]:bg-accent-fill-subtle-active data-[state=on]:text-accent-text-subtle',
       intent: 'accent',
       variant: 'subtle',
     },
     {
       class:
-        'data-[state=on]:text-neutral-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-neutral-border-subtle-active data-[state=on]:bg-neutral-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-neutral-border-subtle-active data-[state=on]:bg-neutral-fill-subtle-active data-[state=on]:text-neutral-text-subtle',
       intent: 'neutral',
       variant: 'subtle',
     },
     {
       class:
-        'data-[state=on]:text-info-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-info-border-subtle-active data-[state=on]:bg-info-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-info-border-subtle-active data-[state=on]:bg-info-fill-subtle-active data-[state=on]:text-info-text-subtle',
       intent: 'info',
       variant: 'subtle',
     },
     {
       class:
-        'data-[state=on]:text-warning-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-warning-border-subtle-active data-[state=on]:bg-warning-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-warning-border-subtle-active data-[state=on]:bg-warning-fill-subtle-active data-[state=on]:text-warning-text-subtle',
       intent: 'warning',
       variant: 'subtle',
     },
     {
       class:
-        'data-[state=on]:text-error-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-error-border-subtle-active data-[state=on]:bg-error-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-error-border-subtle-active data-[state=on]:bg-error-fill-subtle-active data-[state=on]:text-error-text-subtle',
       intent: 'error',
       variant: 'subtle',
     },
     {
       class:
-        'data-[state=on]:text-success-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-success-border-subtle-active data-[state=on]:bg-success-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-success-border-subtle-active data-[state=on]:bg-success-fill-subtle-active data-[state=on]:text-success-text-subtle',
       intent: 'success',
       variant: 'subtle',
     },
     {
       class:
-        'data-[state=on]:text-primary-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-primary-border-subtle-active data-[state=on]:bg-primary-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-primary-border-subtle-active data-[state=on]:bg-primary-fill-subtle-active data-[state=on]:text-primary-text-subtle',
       intent: 'primary',
       variant: 'ghost',
     },
     {
       class:
-        'data-[state=on]:text-secondary-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-secondary-border-subtle-active data-[state=on]:bg-secondary-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-secondary-border-subtle-active data-[state=on]:bg-secondary-fill-subtle-active data-[state=on]:text-secondary-text-subtle',
       intent: 'secondary',
       variant: 'ghost',
     },
     {
       class:
-        'data-[state=on]:text-accent-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-accent-border-subtle-active data-[state=on]:bg-accent-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-accent-border-subtle-active data-[state=on]:bg-accent-fill-subtle-active data-[state=on]:text-accent-text-subtle',
       intent: 'accent',
       variant: 'ghost',
     },
     {
       class:
-        'data-[state=on]:text-neutral-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-neutral-border-subtle-active data-[state=on]:bg-neutral-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-neutral-border-subtle-active data-[state=on]:bg-neutral-fill-subtle-active data-[state=on]:text-neutral-text-subtle',
       intent: 'neutral',
       variant: 'ghost',
     },
     {
       class:
-        'data-[state=on]:text-info-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-info-border-subtle-active data-[state=on]:bg-info-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-info-border-subtle-active data-[state=on]:bg-info-fill-subtle-active data-[state=on]:text-info-text-subtle',
       intent: 'info',
       variant: 'ghost',
     },
     {
       class:
-        'data-[state=on]:text-warning-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-warning-border-subtle-active data-[state=on]:bg-warning-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-warning-border-subtle-active data-[state=on]:bg-warning-fill-subtle-active data-[state=on]:text-warning-text-subtle',
       intent: 'warning',
       variant: 'ghost',
     },
     {
       class:
-        'data-[state=on]:text-error-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-error-border-subtle-active data-[state=on]:bg-error-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-error-border-subtle-active data-[state=on]:bg-error-fill-subtle-active data-[state=on]:text-error-text-subtle',
       intent: 'error',
       variant: 'ghost',
     },
     {
       class:
-        'data-[state=on]:text-success-text-subtle-active disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-success-border-subtle-active data-[state=on]:bg-success-fill-subtle-active',
+        'disabled:pointer-events-none disabled:opacity-40 data-[state=on]:border-success-border-subtle-active data-[state=on]:bg-success-fill-subtle-active data-[state=on]:text-success-text-subtle',
       intent: 'success',
       variant: 'ghost',
     },

@@ -15,7 +15,7 @@ export const controlShellCVA = cva('flex w-full min-w-0 items-center gap-0.5', {
       intent: 'neutral',
     },
     {
-      class: 'border-neutral text-neutral bg-neutral-fill-subtle',
+      class: 'border-neutral-border bg-neutral-fill-subtle text-neutral-text-disabled',
       disabled: true,
       intent: 'neutral',
     },
@@ -26,7 +26,7 @@ export const controlShellCVA = cva('flex w-full min-w-0 items-center gap-0.5', {
       intent: 'primary',
     },
     {
-      class: 'border-primary text-primary bg-primary-fill-subtle',
+      class: 'border-primary-border bg-primary-fill-subtle text-primary-text-disabled',
       disabled: true,
       intent: 'primary',
     },
@@ -37,7 +37,7 @@ export const controlShellCVA = cva('flex w-full min-w-0 items-center gap-0.5', {
       intent: 'secondary',
     },
     {
-      class: 'border-secondary text-secondary bg-secondary-fill-subtle',
+      class: 'border-secondary-border bg-secondary-fill-subtle text-secondary-text-disabled',
       disabled: true,
       intent: 'secondary',
     },
@@ -48,7 +48,7 @@ export const controlShellCVA = cva('flex w-full min-w-0 items-center gap-0.5', {
       intent: 'accent',
     },
     {
-      class: 'border-accent text-accent bg-accent-fill-subtle',
+      class: 'border-accent-border bg-accent-fill-subtle text-accent-text-disabled',
       disabled: true,
       intent: 'accent',
     },
@@ -115,7 +115,7 @@ export const fieldInputCVA = cva('txt-base min-w-0 flex-1 read-only:cursor-defau
       standalone: true,
     },
     {
-      class: 'border-neutral bg-neutral-fill-subtle',
+      class: 'border-neutral-border bg-neutral-fill-subtle',
       disabled: true,
       intent: 'neutral',
       standalone: true,
@@ -128,7 +128,7 @@ export const fieldInputCVA = cva('txt-base min-w-0 flex-1 read-only:cursor-defau
       standalone: true,
     },
     {
-      class: 'border-primary bg-primary-fill-subtle',
+      class: 'border-primary-border bg-primary-fill-subtle',
       disabled: true,
       intent: 'primary',
       standalone: true,
@@ -141,7 +141,7 @@ export const fieldInputCVA = cva('txt-base min-w-0 flex-1 read-only:cursor-defau
       standalone: true,
     },
     {
-      class: 'border-secondary bg-secondary-fill-subtle',
+      class: 'border-secondary-border bg-secondary-fill-subtle',
       disabled: true,
       intent: 'secondary',
       standalone: true,
@@ -154,7 +154,7 @@ export const fieldInputCVA = cva('txt-base min-w-0 flex-1 read-only:cursor-defau
       standalone: true,
     },
     {
-      class: 'border-accent bg-accent-fill-subtle',
+      class: 'border-accent-border bg-accent-fill-subtle',
       disabled: true,
       intent: 'accent',
       standalone: true,
