@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import type { FieldProps } from '~ui/app/components/Form/Field.vue'
+import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
+
 import {
   buildTreeViewCheckedState,
   emptyTreeViewCheckedState,
@@ -16,8 +19,6 @@ import type {
   TreeViewItem,
   TreeViewSize,
 } from '~/utils/Components/TreeView/context'
-import type { FieldProps } from '~ui/app/components/Form/Field.vue'
-import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
 
 defineOptions({ inheritAttrs: false })
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { Book } from '~/types/book'
 import type { FilterValues } from '~ui/app/utils/Components/Filter/schema'
+
+import type { Book } from '~/types/book'
 
 definePageMeta({
   viewTransition: true,

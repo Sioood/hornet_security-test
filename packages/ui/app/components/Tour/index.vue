@@ -7,8 +7,9 @@ import {
 } from '@ark-ui/vue/tour'
 import { cva } from 'class-variance-authority'
 
-import { useLayerZIndexRef } from '~/composables/useLayerZIndexRef'
 import { resolveActionVariant } from '~ui/app/utils/Components/Tour/variants'
+
+import { useLayerZIndexRef } from '~/composables/useLayerZIndexRef'
 
 import type { ClassValue } from 'vue'
 

@@ -9,7 +9,6 @@ import UITreeViewNode from '~ui/app/components/TreeView/Node.vue'
 import UITreeViewRoot from '~ui/app/components/TreeView/Root.vue'
 import { emptyTreeViewCheckedState } from '~ui/app/utils/Components/TreeView/checked-state'
 import { createTreeViewCollection } from '~ui/app/utils/Components/TreeView/collection'
-
 import type { TreeViewItem } from '~ui/app/utils/Components/TreeView/context'
 
 const treeItems: TreeViewItem[] = [

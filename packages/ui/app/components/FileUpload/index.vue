@@ -9,8 +9,9 @@ import {
 } from '@ark-ui/vue/file-upload'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import type { ClassValue } from 'vue'
 import type { FieldProps } from '~ui/app/components/Form/Field.vue'
+
+import type { ClassValue } from 'vue'
 
 defineOptions({ inheritAttrs: false })
 

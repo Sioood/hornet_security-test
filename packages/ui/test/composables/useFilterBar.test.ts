@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest'
 import { effectScope, ref } from 'vue'
 
-import { useFilterBar } from '../../app/composables/useFilterBar'
-
 import type { FilterSchema } from '~ui/app/utils/Components/Filter/schema'
+
+import { useFilterBar } from '../../app/composables/useFilterBar'
 
 interface Row {
   id: number

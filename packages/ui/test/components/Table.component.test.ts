@@ -3,16 +3,17 @@ import { flushPromises } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import { defineComponent, h, ref } from 'vue'
 
-import {
-  createExpandToggleColumn,
-  createSelectionColumn,
-} from '~/utils/Components/Table/column-helpers'
 import ExpandToggle from '~ui/app/components/Table/helpers/ExpandToggle.vue'
 import RowContextMenu from '~ui/app/components/Table/helpers/RowContextMenu.vue'
 import RowSelectionCell from '~ui/app/components/Table/helpers/RowSelectionCell.vue'
 import RowSelectionHeader from '~ui/app/components/Table/helpers/RowSelectionHeader.vue'
 import UITable from '~ui/app/components/Table/index.vue'
 import { useUITable } from '~ui/app/composables/useUITable'
+
+import {
+  createExpandToggleColumn,
+  createSelectionColumn,
+} from '~/utils/Components/Table/column-helpers'
 
 import type { UITableColumn } from '~/utils/Components/Table/types'
 

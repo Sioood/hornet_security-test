@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import type { UIFilterBarExpose } from '~ui/app/components/Filter/Bar.vue'
+import type { FilterSchema, FilterValues } from '~ui/app/utils/Components/Filter/schema'
+
 import { bookGenreSchema } from '../schemas/book'
 
 import type { Book } from '../types/book'
-import type { UIFilterBarExpose } from '~ui/app/components/Filter/Bar.vue'
-import type { FilterSchema, FilterValues } from '~ui/app/utils/Components/Filter/schema'
 
 const filterValues = defineModel<FilterValues>({ required: true })
 

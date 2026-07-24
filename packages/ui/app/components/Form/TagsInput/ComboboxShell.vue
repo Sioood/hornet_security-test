@@ -2,6 +2,8 @@
 import { type ComboboxInputValueChangeDetails } from '@ark-ui/vue/combobox'
 import { useFilter } from '@ark-ui/vue/locale'
 
+import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
+
 import {
   createComboboxCollection,
   filterComboboxItems,
@@ -14,7 +16,6 @@ import type {
   TagsInputSize,
   UITagsInputSlots,
 } from '~/utils/Components/Form/TagsInput/context'
-import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
 
 defineOptions({ inheritAttrs: false })
 

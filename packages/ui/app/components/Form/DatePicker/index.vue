@@ -6,6 +6,8 @@ import {
   type UseDatePickerReturn,
 } from '@ark-ui/vue/date-picker'
 
+import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
+
 import {
   type DatePickerIntent,
   type DatePickerPreset,
@@ -16,7 +18,6 @@ import { datePickerPresetGroupCVA } from '~/utils/Components/Form/DatePicker/var
 import { fieldInputCVA } from '~/utils/Components/Form/variants'
 
 import type { DateValue } from '@internationalized/date'
-import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
 
 defineOptions({ inheritAttrs: false })
 

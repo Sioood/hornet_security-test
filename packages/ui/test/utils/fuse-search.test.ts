@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
 import { runFuseSearch } from '~ui/app/utils/Components/Filter/fuse-search'
-
 import type { SearchFilterField } from '~ui/app/utils/Components/Filter/schema'
 
 interface Book {

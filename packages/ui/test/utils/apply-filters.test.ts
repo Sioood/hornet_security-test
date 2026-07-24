@@ -5,7 +5,6 @@ import {
   hasActiveFilters,
   isFilterFieldActive,
 } from '~ui/app/utils/Components/Filter/apply-filters'
-
 import type { FilterSchema } from '~ui/app/utils/Components/Filter/schema'
 
 interface Item {

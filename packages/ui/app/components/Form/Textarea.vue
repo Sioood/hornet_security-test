@@ -4,10 +4,11 @@ import {
   type FieldTextareaBaseProps as ArkFieldTextareaBaseProps,
 } from '@ark-ui/vue/field'
 
+import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
+
 import { fieldInputCVA } from '~/utils/Components/Form/variants'
 
 import type { UIInputSlots } from '~/utils/Components/Form/context'
-import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
 
 export type { UIInputSlots } from '~/utils/Components/Form/context'
 

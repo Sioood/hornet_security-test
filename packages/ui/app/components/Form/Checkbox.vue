@@ -7,6 +7,8 @@ import {
 import { cva, type VariantProps } from 'class-variance-authority'
 import { useAttrs } from 'vue'
 
+import type { FieldProps } from '~ui/app/components/Form/Field.vue'
+
 import { splitArkAttrs } from '~/utils/ark'
 import {
   checkboxControlCVA,
@@ -20,7 +22,6 @@ import type {
   FormFieldSize,
   UICheckboxSlots,
 } from '~/utils/Components/Form/context'
-import type { FieldProps } from '~ui/app/components/Form/Field.vue'
 
 export type { UICheckboxSlots } from '~/utils/Components/Form/context'
 

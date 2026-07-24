@@ -7,8 +7,9 @@ import {
 } from '@ark-ui/vue/switch'
 import { cva } from 'class-variance-authority'
 
-import type { ClassValue } from 'vue'
 import type { FieldProps } from '~ui/app/components/Form/Field.vue'
+
+import type { ClassValue } from 'vue'
 
 defineOptions({ inheritAttrs: false })
 

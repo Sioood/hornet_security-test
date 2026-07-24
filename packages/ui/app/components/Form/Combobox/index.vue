@@ -7,6 +7,8 @@ import {
 } from '@ark-ui/vue/combobox'
 import { useFilter } from '@ark-ui/vue/locale'
 
+import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
+
 import { formTagsInputComboboxPositioning } from '~/composables/useFormTagsInputCombobox'
 import {
   createComboboxCollection,
@@ -21,7 +23,6 @@ import type {
   ComboboxSize,
   UIComboboxSlots,
 } from '~/utils/Components/Form/Combobox/context'
-import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
 
 defineOptions({ inheritAttrs: false })
 

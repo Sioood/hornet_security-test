@@ -3,7 +3,6 @@ import { describe, expect, it, vi } from 'vitest'
 
 import FilterBar from '~ui/app/components/Filter/Bar.vue'
 import { applyFilters } from '~ui/app/utils/Components/Filter/apply-filters'
-
 import type { FilterSchema, FilterValues } from '~ui/app/utils/Components/Filter/schema'
 
 interface Row {

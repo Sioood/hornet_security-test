@@ -7,8 +7,9 @@ import {
 } from '@ark-ui/vue/slider'
 import { cva } from 'class-variance-authority'
 
-import type { UISliderSlots } from '~/utils/Components/Form/context'
 import type { FieldProps } from '~ui/app/components/Form/Field.vue'
+
+import type { UISliderSlots } from '~/utils/Components/Form/context'
 
 defineOptions({ inheritAttrs: false })
 

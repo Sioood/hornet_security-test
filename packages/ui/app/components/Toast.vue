@@ -2,12 +2,13 @@
 import { Toast as ArkToast, Toaster as ArkToaster, type ToasterBaseProps } from '@ark-ui/vue/toast'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { useLayerZIndexRef } from '~/composables/useLayerZIndexRef'
 import {
   useComponentIcons,
   type ComponentState,
   type UseComponentIconsProps,
 } from '~ui/app/composables/useComponentIcons'
+
+import { useLayerZIndexRef } from '~/composables/useLayerZIndexRef'
 
 import type { ClassValue } from 'vue'
 

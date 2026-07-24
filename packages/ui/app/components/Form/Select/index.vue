@@ -6,13 +6,14 @@ import {
   type UseSelectReturn,
 } from '@ark-ui/vue/select'
 
+import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
+
 import type {
   SelectIntent,
   SelectSize,
   SelectItem,
   UISelectSlots,
 } from '~/utils/Components/Form/Select/context'
-import type { FormControlShellProps } from '~ui/app/components/Form/FormControlShell.vue'
 
 defineOptions({ inheritAttrs: false })
 

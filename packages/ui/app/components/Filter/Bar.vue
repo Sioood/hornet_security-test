@@ -1,4 +1,6 @@
 <script setup lang="ts" generic="TItem">
+import type { UIFormSearchInputExpose } from '~ui/app/components/Form/SearchInput.vue'
+
 import { hasActiveFilters as computeHasActiveFilters } from '~/utils/Components/Filter/apply-filters'
 import {
   buildDefaultFilterValues,
@@ -8,7 +10,6 @@ import {
 } from '~/utils/Components/Filter/schema'
 
 import type { FilterBarLayout, FilterSchema, FilterValues } from '~/utils/Components/Filter/schema'
-import type { UIFormSearchInputExpose } from '~ui/app/components/Form/SearchInput.vue'
 
 export type { FilterBarLayout, FilterSchema, FilterValues }
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { FieldProps } from '~ui/app/components/Form/Field.vue'
+
 import type {
   RatingGroupRootBaseProps,
   RatingGroupRootProviderBaseProps,
@@ -11,7 +13,6 @@ import type {
   RatingSize,
   UIRatingSlots,
 } from '~/utils/Components/Form/Rating/context'
-import type { FieldProps } from '~ui/app/components/Form/Field.vue'
 
 export type RatingItemState = UnwrapRef<UseRatingGroupItemContext>
 
